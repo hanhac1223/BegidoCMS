@@ -1,7 +1,8 @@
 @extends('admin.master')
 @section('content')
 <div class="animated fadeIn">
-    <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form action="{{ action('TinTucController@postThem') }}" method="post" enctype="multipart/form-data" class="form-horizontal">
+        {{ csrf_field() }}
         <div class="card">
             <div class="card-header">
                 <h4>Thêm tin tức</h4>
@@ -13,21 +14,23 @@
                             <div class="card-body">
 
                                 <label >Nhập tiêu đề</label>
-                                <input type="text" id="text-input" name="text-input" class="form-control" placeholder="Nhập tên tiêu đề bài viết"><br>
+                                <input type="text" id="texttieude" name="texttieude" class="form-control" placeholder="Nhập tên tiêu đề bài viết"><br>
 
                                 <label>Chọn danh mục bài viết</label>
-                                <select id="select" name="select" class="form-control">
-                                        <option value="0">Please select</option>
-                                        <option value="1">Option #1</option>
-                                        <option value="2">Option #2</option>
-                                        <option value="3">Option #3</option>
+                                <select id="idmsdanhmucbaiviet" name="msdanhmucbaiviet" class="form-control msdanhmucbaiviet">
+                                    @foreach($danhmuc as $index)
+                                        <option value="{{ $index -> msdanhmucbaiviet }}">{{ $index -> tendanhmucbaiviet }}</option>
+                                    @endforeach
                                 </select><br>
+
+                                <label >Nhập URL</label>
+                                <input type="text" id="textURL" name="textURL" class="form-control" placeholder="Nhập URL"><br>
 
 
                                 <label>Nhập nội dung bài viết</label>
 
-                                <div id="editor">
-
+                                <div id="editor" class="col-12 editor-khung">
+                                    <span name="textnoidung">
                                     <p><b>Bootstrap</b> is a <a href="https://genesisui.com/wiki/Free_and_open-source_software" title="Free and open-source software">free and open-source</a> front-end <a href="https://genesisui.com/wiki/Web_framework" title="Web framework">web framework</a> for designing
                                         <a href="https://genesisui.com/wiki/Website" title="Website">websites</a>and <a href="https://genesisui.com/wiki/Web_application" title="Web application">web applications</a>. It contains <a href="https://genesisui.com/wiki/HTML" title="HTML">HTML</a>- and <a href="https://genesisui.com/wiki/CSS" class="mw-redirect"
                                         title="CSS">CSS</a>-based design templates for <a href="https://genesisui.com/wiki/Typography" title="Typography">typography</a>, forms, buttons, navigation and other interface components, as well as optional <a href="https://genesisui.com/wiki/JavaScript" title="JavaScript">JavaScript</a> extensions.
@@ -47,11 +50,16 @@
                                         has continued to be maintained by Mark Otto, Jacob Thornton, and a small group of core developers, as well as a large community of contributors.<sup id="cite_ref-about_6-0" class="reference"><a href="#cite_note-about-6">[6]</a></sup>
                                     </p>
 
+                                    </span>
                                 </div><br><br>
                                 <button type="button" class="btn btn-primary">Thêm Media</button>
                                 <button type="button" class="btn btn-primary">Lưu nháp</button>
-                                <button type="button" class="btn btn-primary">Đăng bài</button>
-
+                                <button type="submit" class="btn btn-primary">Đăng bài</button>
+                                @if(session('success'))
+                                    <div class="alert">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
                             </div>
                         </div>
 
