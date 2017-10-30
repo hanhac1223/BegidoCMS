@@ -17,7 +17,7 @@
                                 <input type="text" id="texttieude" name="texttieude" class="form-control" placeholder="Nhập tên tiêu đề bài viết"><br>
 
                                 <label>Chọn danh mục bài viết</label>
-                                <select id="idmsdanhmucbaiviet" name="msdanhmucbaiviet" class="form-control msdanhmucbaiviet">
+                                <select id="idmsdanhmucbaiviet" name="msdmbaiviet" class="form-control">
                                     @foreach($danhmuc as $index)
                                         <option value="{{ $index -> msdanhmucbaiviet }}">{{ $index -> tendanhmucbaiviet }}</option>
                                     @endforeach
