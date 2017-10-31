@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-12 float-right">
                                 <br>
-                                <button type="button" class="btn btn-primary">Lưu nháp</button>
+                                <button type="button" class="btn btn-warning">Lưu nháp</button>
                                 <button type="submit" class="btn btn-primary">Đăng bài</button>
                             </div>
                             @if(session('success'))
