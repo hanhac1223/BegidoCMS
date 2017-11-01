@@ -32,7 +32,7 @@
                             </div>
                             <div class="col-6">
                                 <label>Chọn danh mục bài viết</label>
-                                <select id="idmsdanhmucbaiviet" name="msdmbaiviet" class="form-control" multiple>
+                                <select id="idmsdanhmucbaiviet" name="msdmbaiviet" class="form-control" >
                                     @foreach($danhmuc as $index)
                                         <option value="{{ $index -> msdanhmucbaiviet }}">{{ $index -> tendanhmucbaiviet }}</option>
                                     @endforeach
