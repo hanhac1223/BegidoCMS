@@ -198,8 +198,8 @@ class TinTucModel extends Model
     {
 
         DB::insert('INSERT INTO public.baiviet(
-	msuser, msdanhmucbaiviet, tieude, url, ngaytaobaiviet, trangthai, luotxem)
-	VALUES (?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->url, $this->ngaytaobai, 0, 0]);
+	msuser, msdanhmucbaiviet, tieude, noidung, url, ngaytaobaiviet, trangthai, luotxem)
+	VALUES (?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->ngaytaobai, 0, 0]);
 
     }
 

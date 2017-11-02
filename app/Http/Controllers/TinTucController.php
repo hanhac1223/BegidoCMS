@@ -23,6 +23,7 @@ class TinTucController extends Controller
 
         $tintuc->setTieude($request->input('texttieude'));
         $tintuc->setMsdmbaiviet($request->msdmbaiviet);
+        $tintuc->setNoidung($request->input('editor'));
         $tintuc->setUrl($request->input('textURL'));
         $dt = new DateTime();
         $tintuc->setNgaytaobai($dt);
