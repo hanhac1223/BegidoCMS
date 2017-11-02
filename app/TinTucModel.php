@@ -20,6 +20,8 @@ class TinTucModel extends Model
     private $trangthai;
     private $luotxem;
     private $nhan;
+    private $searchtitle;
+    private $searchdescription;
 
     /**
      * @return mixed
@@ -35,6 +37,38 @@ class TinTucModel extends Model
     public function setUser($user)
     {
         $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSearchtitle()
+    {
+        return $this->searchtitle;
+    }
+
+    /**
+     * @param mixed $searchtitle
+     */
+    public function setSearchtitle($searchtitle)
+    {
+        $this->searchtitle = $searchtitle;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSearchdescription()
+    {
+        return $this->searchdescription;
+    }
+
+    /**
+     * @param mixed $searchdescription
+     */
+    public function setSearchdescription($searchdescription)
+    {
+        $this->searchdescription = $searchdescription;
     }
 
     /**
@@ -198,8 +232,8 @@ class TinTucModel extends Model
     {
 
         DB::insert('INSERT INTO public.baiviet(
-	msuser, msdanhmucbaiviet, tieude, noidung, url, ngaytaobaiviet, trangthai, luotxem)
-	VALUES (?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->ngaytaobai, 0, 0]);
+	msuser, msdanhmucbaiviet, tieude, noidung, url, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
+	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
 
     }
 

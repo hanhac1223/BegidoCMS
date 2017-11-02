@@ -24,15 +24,18 @@ class TinTucController extends Controller
         $tintuc->setTieude($request->input('texttieude'));
         $tintuc->setMsdmbaiviet($request->msdmbaiviet);
         $tintuc->setNoidung($request->input('editor'));
-        $tintuc->setUrl($request->input('textURL'));
-        $dt = new DateTime();
-        $tintuc->setNgaytaobai($dt);
-        $tintuc->setTrangthai("Chờ duyệt");
+        $tintuc->setUrl(str_slug($request->input('texttieude'), '-'));
+        $tintuc->setTrangthai(0);
         $tintuc->setLuotxem(0);
         $tintuc->setNhan(" ");
-        $tieude = $request->input('texttieude');
+        $tintuc->setSearchtitle($request->input('textSTitle'));
+        $tintuc->setSearchdescription($request->input('textSURL'));
+
+        $dt = new DateTime();
+        $tintuc->setNgaytaobai($dt);
 
         $data = $tintuc->Them();
+
         if($data != 0)
         {
             return redirect()->back()->with('success','The Message');
