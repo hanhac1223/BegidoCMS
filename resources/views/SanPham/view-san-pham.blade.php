@@ -2,10 +2,6 @@
 
 @section('content')
 
-    @foreach($user as $a)
-        {{ $a->TENDANHMUCSANPHAM  }}
-        @endforeach
-
 <div class="animated fadeIn">
     <div class="card">
         <div class="card-header">
