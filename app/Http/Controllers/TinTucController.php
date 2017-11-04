@@ -17,6 +17,17 @@ class TinTucController extends Controller
         return view('admin.Them_tintuc', ['danhmuc' => $dm->getDanhMuc()]);
     }
 
+    public function DanhSachTinTuc()
+    {
+        $dm = new TinTucModel();
+        return view('admin.Tintuc', ['danhmuc' => $dm->getDanhMuc()]);
+    }
+
+    public function getIDCapNhatTinTuc(Request $request, $id)
+    {
+        echo $id;
+    }
+
     public function postThem( Request $request)
     {
         $tintuc = new TinTucModel;
@@ -46,5 +57,11 @@ class TinTucController extends Controller
             return redirect()->back()->with('fail','The Message');
         }
 
+    }
+
+    public function getTinTuc()
+    {
+        $dm = new TinTucModel();
+        return view('admin.Tintuc', ['danhmuc' => $dm->getDanhMuc()]);
     }
 }
