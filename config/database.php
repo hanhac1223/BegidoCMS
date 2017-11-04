@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -58,9 +58,9 @@ return [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', 'omgcms.cxr0jfskagly.ap-southeast-1.rds.amazonaws.com'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'omgCMS'),
-            'username' => env('DB_USERNAME', 'omgTech'),
-            'password' => env('DB_PASSWORD', 'omgTech'),
+            'database' => env('DB_DATABASE', 'begido'),
+            'username' => env('DB_USERNAME', 'omgAdmin'),
+            'password' => env('DB_PASSWORD', 'HanhPhuc2017'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
