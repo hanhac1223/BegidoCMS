@@ -24,7 +24,8 @@ class TinTucController extends Controller
         $tintuc->setTieude($request->input('texttieude'));
         $tintuc->setMsdmbaiviet($request->msdmbaiviet);
         $tintuc->setNoidung($request->input('editor'));
-        $tintuc->setUrl(str_slug($request->input('texttieude'), '-'));
+        $tintuc->setUrl(str_slug($request->input('textURL'), '-'));
+        $tintuc->setAnhdaidien($request->input('photo'));
         $tintuc->setTrangthai(0);
         $tintuc->setLuotxem(0);
         $tintuc->setNhan(" ");
