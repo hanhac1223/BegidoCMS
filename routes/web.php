@@ -15,11 +15,11 @@ Route::get('/', function () {
 });
 
 Route::get('/sanpham', function () {
-    return view('Sanpham.view-san-pham');
+    return view('SanPham.view-san-pham');
 });
 
 Route::get('/sanpham/them', function () {
-    return view('Them_sanpham');
+    return view('SanPham.view-them-san-pham');
 });
 
 Route::get('/sanpham/capnhat', function () {
@@ -70,3 +70,11 @@ Route::get('/tintuc/danhmuc/them', function () {
 Route::get('/tintuc/danhmuc/capnhat', function () {
     return view('admin.Chinhsua_dmtintuc');
 });
+
+// ****** LOGIN ******** //
+Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
+Route::get('postLogin', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
+
+Route::get('admin', ['as' => 'admin', function() {
+    return view('admin.tintuc');
+}]);
