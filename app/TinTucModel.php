@@ -236,6 +236,13 @@ WHERE public.\"baiviet\".\"msuser\" = public.\"nguoidung\".\"msuser\" AND public
         return $data;
     }
 
+    public function Xoa()
+    {
+        $data = DB::select("DELETE FROM public.baiviet
+	WHERE public.\"baiviet\".\"msbaiviet\" = '$this->'msbaiviet'");
+        return $data;
+    }
+
     public function Them()
     {
         DB::insert('INSERT INTO public.baiviet(

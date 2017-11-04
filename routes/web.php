@@ -47,6 +47,7 @@ Route::prefix('tintuc')->group(function (){
    Route::get('/', 'TinTucController@DanhSachTinTuc');
    Route::get('/them', 'TinTucController@getDanhMucTinTuc');
    Route::get('/capnhat/{id}', 'TinTucController@getIDCapNhatTinTuc');
+   Route::get('/xoa/{id}', 'TinTucController@getIDXoaTinTuc');
    Route::post('postThem', 'TinTucController@postThem');
 
 });
