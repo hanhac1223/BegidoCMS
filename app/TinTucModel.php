@@ -228,13 +228,35 @@ class TinTucModel extends Model
         $this->nhan = $nhan;
     }
 
-    public function Them()
+    public function Them($url)
     {
-
-        DB::insert('INSERT INTO public.baiviet(
+        $check = 0;
+        $sql = DB::select("SELECT COUNT (*) FROM public.\"baiviet\" WHERE url = '$url'");
+        if($sql > 0)
+        {
+            $check = 1;
+        }
+        else
+            $check = 0;
+        if($check == 0){
+            $data = DB::insert('INSERT INTO public.baiviet(
 	msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
 	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
-
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
     }
-
+    public function Kiemtra_URL($url)
+    {
+        $sql = DB::select("SELECT COUNT (*) FROM public.\"baiviet\" WHERE url = '$url'");
+        if($sql > 0)
+        {
+            return 1;
+        }
+        else
+            return 0;
+    }
 }

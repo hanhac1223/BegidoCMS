@@ -17,6 +17,11 @@ class TinTucController extends Controller
         return view('admin.Them_tintuc', ['danhmuc' => $dm->getDanhMuc()]);
     }
 
+    public function getURL(Request $request)
+    {
+        $tintuc = new TinTucModel;
+        return view('admin.Them_tintuc', ['danhmuc' => $->getDanhMuc()]);
+    }
     public function postThem( Request $request)
     {
         $tintuc = new TinTucModel;
@@ -35,16 +40,18 @@ class TinTucController extends Controller
         $dt = new DateTime();
         $tintuc->setNgaytaobai($dt);
 
-        $data = $tintuc->Them();
+        $data = $tintuc->Them(str_slug($request->input('textURL'), '-'));
 
         if($data != 0)
         {
-            return redirect()->back()->with('success','The Message');
+            return redirect()->back()->with('success','Thêm tin tức thành công!');
         }
         else
         {
-            return redirect()->back()->with('fail','The Message');
+            return redirect()->back()->with('fail','Thêm tin tức thất bại!');
         }
 
     }
+
+
 }
