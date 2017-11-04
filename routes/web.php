@@ -42,18 +42,17 @@ Route::get('/donhang/capnhat', function () {
     return view('admin.Chinhsua_donhang');
 });
 
-//Route::prefix('sanpham')->group(function (){
-//   Route::get('/', 'SanPhamController@getSanPham');
-//   Route::get('/them', 'SanPhamController@Them');
-//});
 
-//Tin tuc
 Route::prefix('tintuc')->group(function (){
+   Route::get('/', 'TinTucController@DanhSachTinTuc');
    Route::get('/them', 'TinTucController@getDanhMucTinTuc');
+   Route::get('/capnhat/{id}', 'TinTucController@getIDCapNhatTinTuc');
+   Route::get('/xoa/{id}', 'TinTucController@getIDXoaTinTuc');
    Route::post('postThem', 'TinTucController@postThem');
 
 });
 
+<<<<<<< HEAD
 
 Route::get('/tintuc', function () {
     return view('admin.Tintuc');
@@ -78,3 +77,5 @@ Route::get('postLogin', ['as' => 'postLogin', 'uses' => 'LoginController@postLog
 Route::get('admin', ['as' => 'admin', function() {
     return view('admin.tintuc');
 }]);
+=======
+>>>>>>> 172c45a046b5708e3f218aded34dd6bd2f1bca5c

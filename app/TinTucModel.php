@@ -20,6 +20,8 @@ class TinTucModel extends Model
     private $trangthai;
     private $luotxem;
     private $nhan;
+    private $searchtitle;
+    private $searchdescription;
 
     /**
      * @return mixed
@@ -35,6 +37,38 @@ class TinTucModel extends Model
     public function setUser($user)
     {
         $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSearchtitle()
+    {
+        return $this->searchtitle;
+    }
+
+    /**
+     * @param mixed $searchtitle
+     */
+    public function setSearchtitle($searchtitle)
+    {
+        $this->searchtitle = $searchtitle;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSearchdescription()
+    {
+        return $this->searchdescription;
+    }
+
+    /**
+     * @param mixed $searchdescription
+     */
+    public function setSearchdescription($searchdescription)
+    {
+        $this->searchdescription = $searchdescription;
     }
 
     /**
@@ -194,13 +228,49 @@ class TinTucModel extends Model
         $this->nhan = $nhan;
     }
 
-    public function Them()
+    public function Them($url)
     {
-
-        DB::insert('INSERT INTO public.baiviet(
-	msuser, msdanhmucbaiviet, tieude, url, ngaytaobaiviet, trangthai, luotxem)
-	VALUES (?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->url, $this->ngaytaobai, 0, 0]);
-
+        $check = 0;
+        $sql = DB::select("SELECT COUNT (*) FROM public.\"baiviet\" WHERE url = '$url'");
+        if($sql > 0)
+        {
+            $check = 1;
+        }
+        else
+            $check = 0;
+        if($check == 0){
+            $data = DB::insert('INSERT INTO public.baiviet(
+	        msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    public function Kiemtra_URL($url)
+    {
+        $sql = DB::select("SELECT COUNT (*) FROM public.\"baiviet\" WHERE url = '$url'");
+        if($sql > 0)
+        {
+            return 1;
+        }
+        else
+            return 0;
+    }
+    public function getDanhMuc()
+    {
+        $data = DB::select("SELECT msbaiviet, public.\"baiviet\".\"msuser\", public.\"nguoidung\".\"tenuser\",public.\"baiviet\".\"msdanhmucbaiviet\", public.\"danhmucbaiviet\".\"tendanhmucbaiviet\", tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, nhan, searchtitle, searchdescription
+        FROM public.baiviet, public.nguoidung, public.danhmucbaiviet
+        WHERE public.\"baiviet\".\"msuser\" = public.\"nguoidung\".\"msuser\" AND public.\"baiviet\".\"msdanhmucbaiviet\" = public.\"danhmucbaiviet\".\"msdanhmucbaiviet\"");
+        return $data;
     }
 
+    public function Xoa()
+    {
+        $data = DB::select("DELETE FROM public.baiviet
+	WHERE public.\"baiviet\".\"msbaiviet\" = '$this->'msbaiviet'");
+        return $data;
+    }
 }

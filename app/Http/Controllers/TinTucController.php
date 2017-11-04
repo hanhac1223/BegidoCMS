@@ -17,21 +17,28 @@ class TinTucController extends Controller
         return view('admin.Them_tintuc', ['danhmuc' => $dm->getDanhMuc()]);
     }
 
-    public function postThem( Request $request)
+    public function getURL(Request $request)
     {
-        $tintuc = new TinTucModel;
+        $index = new TinTucModel;
+        return view('admin.Them_tintuc', ['urltieude' => $index->getDanhMuc()]);
+    }
 
-        $tintuc->setTieude($request->input('texttieude'));
-        $tintuc->setMsdmbaiviet($request->msdmbaiviet);
-        $tintuc->setUrl($request->input('textURL'));
-        $dt = new DateTime();
-        $tintuc->setNgaytaobai($dt);
-        $tintuc->setTrangthai("Chờ duyệt");
-        $tintuc->setLuotxem(0);
-        $tintuc->setNhan(" ");
-        $tieude = $request->input('texttieude');
+    public function DanhSachTinTuc()
+    {
+        $dm = new TinTucModel();
+        return view('admin.Tintuc', ['danhmuc' => $dm->getDanhMuc()]);
+    }
 
-        $data = $tintuc->Them();
+    public function getIDCapNhatTinTuc(Request $request, $id)
+    {
+        echo $id;
+    }
+    public function getIDXoaTinTuc(Request $request, $id)
+    {
+        $tintuc = new TinTucModel();
+        $tintuc->setMsbaiviet($id);
+        $data = $tintuc->Xoa();
+
         if($data != 0)
         {
             return redirect()->back()->with('success','The Message');
@@ -40,6 +47,42 @@ class TinTucController extends Controller
         {
             return redirect()->back()->with('fail','The Message');
         }
+    }
 
+    public function postThem( Request $request)
+    {
+        $tintuc = new TinTucModel;
+
+        $tintuc->setTieude($request->input('texttieude'));
+        $tintuc->setMsdmbaiviet($request->msdmbaiviet);
+        $tintuc->setNoidung($request->input('editor'));
+        $tintuc->setUrl(str_slug($request->input('textURL'), '-'));
+        $tintuc->setAnhdaidien($request->input('luuanh'));
+        $tintuc->setTrangthai(0);
+        $tintuc->setLuotxem(0);
+        $tintuc->setNhan(" ");
+        $tintuc->setSearchtitle($request->input('textSTitle'));
+        $tintuc->setSearchdescription($request->input('textSURL'));
+
+        $dt = new DateTime();
+        $tintuc->setNgaytaobai($dt);
+
+        $data = $tintuc->Them(str_slug($request->input('textURL'), '-'));
+
+        if($data != 0)
+        {
+            return redirect()->back()->with('success','Thêm tin tức thành công!');
+        }
+        else
+        {
+            return redirect()->back()->with('fail','Thêm tin tức thất bại!');
+        }
+
+    }
+
+    public function getTinTuc()
+    {
+        $dm = new TinTucModel();
+        return view('admin.Tintuc', ['danhmuc' => $dm->getDanhMuc()]);
     }
 }

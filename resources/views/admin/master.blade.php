@@ -5,6 +5,7 @@
     <title>Begido CMS</title>
     <link href="{!!  asset('citi_admin/css/bootstrap.css')  !!}" rel="stylesheet">
     <link href="{!!  asset('citi_admin/css/style.css')  !!}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

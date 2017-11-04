@@ -28,9 +28,7 @@
                             <label class="col-md-3 form-control-label" for="select">Thương hiệu</label>
                             <div class="col-md-9">
                                 <select id="select" name="thuongHieu" class="form-control">
-                                    @foreach($DSThuongHieu as $item)
-                                        <option value="{{ $item->MSTHUONGHIEU  }}">{{ $item->TENTHUONGHIEU  }}</option>
-                                    @endforeach
+
                                 </select>
                             </div>
                         </div>
@@ -58,12 +56,10 @@
                         </div>
                         <br>
                         <div class="form-group row">
-                            <label class="col-md-3 form-control-label">Đối tượng sữ dụng</label>
+                            <label class="col-md-3 form-control-label">Đối tượng sử dụng</label>
                             <div class="col-md-9">
                                 <select id="select" name="thuongHieu" class="form-control">
-                                    @foreach($DSDanhMucSanPham as $item)
-                                        <option value="{{ $item->MSDANHMUCSANPHAM  }}">{{ $item->TENDANHMUCSANPHAM  }}</option>
-                                    @endforeach
+
                                 </select>
                             </div>
                         </div>
