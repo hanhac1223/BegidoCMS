@@ -39,7 +39,7 @@
                                     <a class="btn btn-info" href="tintuc/capnhat/{{ $baiviet->msbaiviet }}">
                                         <i class="fa fa-edit "></i>
                                     </a>
-                                    <a class="btn btn-danger" href="#">
+                                    <a class="btn btn-danger" href="tintuc/xoa/{{ $baiviet->msbaiviet }}">
                                         <i class="fa fa-trash-o "></i>
                                     </a>
                                 </td>

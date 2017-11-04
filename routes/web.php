@@ -47,7 +47,35 @@ Route::prefix('tintuc')->group(function (){
    Route::get('/', 'TinTucController@DanhSachTinTuc');
    Route::get('/them', 'TinTucController@getDanhMucTinTuc');
    Route::get('/capnhat/{id}', 'TinTucController@getIDCapNhatTinTuc');
+   Route::get('/xoa/{id}', 'TinTucController@getIDXoaTinTuc');
    Route::post('postThem', 'TinTucController@postThem');
 
 });
 
+<<<<<<< HEAD
+
+Route::get('/tintuc', function () {
+    return view('admin.Tintuc');
+});
+
+Route::get('/tintuc/capnhat', function () {
+    return view('admin.Chinhsua_tintuc');
+});
+
+Route::get('/tintuc/danhmuc/them', function () {
+    return view('admin.Danhmuc_tintuc');
+});
+
+Route::get('/tintuc/danhmuc/capnhat', function () {
+    return view('admin.Chinhsua_dmtintuc');
+});
+
+// ****** LOGIN ******** //
+Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
+Route::get('postLogin', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
+
+Route::get('admin', ['as' => 'admin', function() {
+    return view('admin.tintuc');
+}]);
+=======
+>>>>>>> 172c45a046b5708e3f218aded34dd6bd2f1bca5c

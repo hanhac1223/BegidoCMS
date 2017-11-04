@@ -40,6 +40,21 @@ class TinTucController extends Controller
         else
             return redirect()->back()->with('non-object','');
     }
+    public function getIDXoaTinTuc(Request $request, $id)
+    {
+        $tintuc = new TinTucModel();
+        $tintuc->setMsbaiviet($id);
+        $data = $tintuc->Xoa();
+
+        if($data != 0)
+        {
+            return redirect()->back()->with('success','The Message');
+        }
+        else
+        {
+            return redirect()->back()->with('fail','The Message');
+        }
+    }
 
     public function postThem( Request $request)
     {
@@ -71,7 +86,6 @@ class TinTucController extends Controller
         }
 
     }
-    
     public function getTinTuc()
     {
         $dm = new TinTucModel();
