@@ -45,8 +45,10 @@
                             </div>
                             <div class="col-6">
                                 <label>Chọn ảnh đại diện -- </label>
-                                <input id="url" onclick="openPopup()" name="photo" type="text"><br>
-                                <img src="" alt="" id="anhdaidien" style="height: 40px; width: 50px" >
+                                <button type="button" class="btn btn-warning" id="url" name="photo" onclick="openPopup()" > Chọn </button>
+                                <br>
+                                <input type="hidden" value="" id="luuurl" name="luuanh">
+                                <img src="" alt="" id="anhdaidien" name="anhdaidien" style="height: 40px; width: 50px" >
                             </div>
                             <div class="col-12">
                                 <label>Nhập nội dung bài viết </label>
@@ -60,6 +62,11 @@
                             @if(session('success'))
                                 <div class="alert">
                                     {{ session('success') }}
+                                </div>
+                            @endif
+                            @if(session('fail'))
+                                <div class="alert">
+                                    {{ session('fail') }}
                                 </div>
                             @endif
                         </div>
@@ -78,23 +85,15 @@
     <script type="text/javascript">
         function openPopup() {
             CKFinder.popup( {
-                // Configure CKFinder's popup size.
                 width: 800,
                 height: 500,
-                // Enable file choose mechanism.
                 chooseFiles: true,
-                // Restrict user to choose only from Images resource type.
                 resourceType: 'Images',
-                // Add handler for events that are fired when user select's file.
                 onInit: function( finder ) {
-                    // User selects original image.
                     finder.on( 'files:choose', function( evt ) {
-                        // Get first file because user might select multiple files
                         var file = evt.data.files.first();
                         showUploadedImage( file.getUrl() )
                     } );
-
-                    // User selects resized image.
                     finder.on( 'file:choose:resizedImage', function( evt ) {
                         showUploadedImage( evt.data.resizedUrl );
                     } );
@@ -105,6 +104,7 @@
         function showUploadedImage( url ) {
             // Update field's value
             jQuery( '#url' ).val( url );
+            $('#luuurl').val(url);
             $('#anhdaidien').prop('src', url);
             // Show chosen image
             var img = jQuery( '<img>' ).attr( 'src', url );
