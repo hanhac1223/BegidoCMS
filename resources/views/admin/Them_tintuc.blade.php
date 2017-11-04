@@ -38,6 +38,9 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="col-6">
+                                <label>Chọn ảnh đại diện</label>
+                            </div>
                             <div class="col-12">
                                 <label>Nhập nội dung bài viết </label>
                                 <textarea class="editor" name="editor" required></textarea>
