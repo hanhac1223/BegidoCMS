@@ -19,8 +19,8 @@ class TinTucController extends Controller
 
     public function getURL(Request $request)
     {
-        $tintuc = new TinTucModel;
-        return view('admin.Them_tintuc', ['danhmuc' => $->getDanhMuc()]);
+        $index = new TinTucModel;
+        return view('admin.Them_tintuc', ['urltieude' => $index->getDanhMuc()]);
     }
     public function postThem( Request $request)
     {
