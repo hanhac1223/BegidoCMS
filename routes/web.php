@@ -42,31 +42,12 @@ Route::get('/donhang/capnhat', function () {
     return view('admin.Chinhsua_donhang');
 });
 
-//Route::prefix('sanpham')->group(function (){
-//   Route::get('/', 'SanPhamController@getSanPham');
-//   Route::get('/them', 'SanPhamController@Them');
-//});
 
-//Tin tuc
 Route::prefix('tintuc')->group(function (){
+   Route::get('/', 'TinTucController@DanhSachTinTuc');
    Route::get('/them', 'TinTucController@getDanhMucTinTuc');
+   Route::get('/capnhat/{id}', 'TinTucController@getIDCapNhatTinTuc');
    Route::post('postThem', 'TinTucController@postThem');
 
 });
 
-
-Route::get('/tintuc', function () {
-    return view('admin.Tintuc');
-});
-
-Route::get('/tintuc/capnhat', function () {
-    return view('admin.Chinhsua_tintuc');
-});
-
-Route::get('/tintuc/danhmuc/them', function () {
-    return view('admin.Danhmuc_tintuc');
-});
-
-Route::get('/tintuc/danhmuc/capnhat', function () {
-    return view('admin.Chinhsua_dmtintuc');
-});

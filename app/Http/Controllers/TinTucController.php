@@ -17,11 +17,25 @@ class TinTucController extends Controller
         return view('admin.Them_tintuc', ['danhmuc' => $dm->getDanhMuc()]);
     }
 
+<<<<<<< HEAD
     public function getURL(Request $request)
     {
         $index = new TinTucModel;
         return view('admin.Them_tintuc', ['urltieude' => $index->getDanhMuc()]);
     }
+=======
+    public function DanhSachTinTuc()
+    {
+        $dm = new TinTucModel();
+        return view('admin.Tintuc', ['danhmuc' => $dm->getDanhMuc()]);
+    }
+
+    public function getIDCapNhatTinTuc(Request $request, $id)
+    {
+        echo $id;
+    }
+
+>>>>>>> 260fd6766e92ab1671bdc5135f6ebc56f0e9fd70
     public function postThem( Request $request)
     {
         $tintuc = new TinTucModel;
@@ -53,5 +67,13 @@ class TinTucController extends Controller
 
     }
 
+<<<<<<< HEAD
 
+=======
+    public function getTinTuc()
+    {
+        $dm = new TinTucModel();
+        return view('admin.Tintuc', ['danhmuc' => $dm->getDanhMuc()]);
+    }
+>>>>>>> 260fd6766e92ab1671bdc5135f6ebc56f0e9fd70
 }
