@@ -12,6 +12,18 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12">
+                                @if(session('success'))
+                                    <div class="alert alert-success" style="width: 100%">
+                                        {{ session('success') }}
+                                    </div>
+                                @endif
+                                @if(session('fail'))
+                                    <div class="alert alert-danger" style="width: 100%">
+                                        {{ session('fail') }}
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="col-12">
                                 <label>Nhập tiêu đề</label>
                                 <input type="text" id="texttieude" name="texttieude" class="form-control"
                                        placeholder="Nhập tên tiêu đề bài viết" required>
@@ -31,11 +43,9 @@
                                 <input type="text" id="Description" name="textSURL" class="form-control"
                                        placeholder="Search Description">
                             </div>
-                            <div class="col-12">
+                            <div class="col-6">
                                 <label>Tag</label>
                                 <input type="text" name="texttag" class="form-control" placeholder="Tag">
-                            </div>
-                            <div class="col-6">
                                 <label>Chọn danh mục bài viết</label>
                                 <select id="idmsdanhmucbaiviet" name="msdmbaiviet" class="form-control">
                                     @foreach($danhmuc as $index)
@@ -44,11 +54,20 @@
                                 </select>
                             </div>
                             <div class="col-6">
-                                <label>Chọn ảnh đại diện -- </label>
-                                <button type="button" class="btn btn-warning" id="url" name="photo" onclick="openPopup()" > Chọn </button>
-                                <br>
-                                <input type="hidden" value="" id="luuurl" name="luuanh">
-                                <img src="" alt="" id="anhdaidien" name="anhdaidien" style="height: 40px; width: 50px" >
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label>Chọn ảnh đại diện</label>
+                                        <br>
+                                        <button type="button" class="btn btn-warning" id="url" name="photo"
+                                                onclick="openPopup()" > Chọn
+                                        </button>
+                                    </div>
+                                    <div class="col-9">
+                                        <input type="hidden" value="" id="luuurl" name="luuanh">
+                                        <img src="" alt="" id="anhdaidien" name="anhdaidien" class="rounded mx-auto d-block"
+                                             style="height: 140px; padding-top: 15px;" >
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-12">
                                 <label>Nhập nội dung bài viết </label>
@@ -59,16 +78,6 @@
                                 <button type="button" class="btn btn-warning">Lưu nháp</button>
                                 <button type="submit" class="btn btn-primary" name="submittintuc">Đăng bài</button>
                             </div>
-                            @if(session('success'))
-                                <div class="alert">
-                                    {{ session('success') }}
-                                </div>
-                            @endif
-                            @if(session('fail'))
-                                <div class="alert">
-                                    {{ session('fail') }}
-                                </div>
-                            @endif
                         </div>
                     </div>
                 </div>
@@ -100,13 +109,10 @@
                 }
             } );
         }
-
         function showUploadedImage( url ) {
-            // Update field's value
             jQuery( '#url' ).val( url );
             $('#luuurl').val(url);
             $('#anhdaidien').prop('src', url);
-            // Show chosen image
             var img = jQuery( '<img>' ).attr( 'src', url );
             jQuery( '#side-feature-img' ).html( img );
         }
