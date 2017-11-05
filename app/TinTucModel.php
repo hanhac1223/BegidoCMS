@@ -228,36 +228,22 @@ class TinTucModel extends Model
         $this->nhan = $nhan;
     }
 
-    public function Them($url)
+    public function Them()
     {
-        $check = 0;
-        $sql = DB::select("SELECT COUNT (*) FROM public.\"baiviet\" WHERE url = '$url'");
-        if ($sql > 0) {
-            $check = 1;
-        } else
-            $check = 0;
-        if ($check == 0) {
-            $data = DB::insert('INSERT INTO public.baiviet(
-	        msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
-            return 1;
-        } else {
-            return 0;
-        }
+        $data = DB::insert('INSERT INTO public.baiviet(
+        msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
+
     }
 
     public function Kiemtra_URL($url)
     {
-        $sql = DB::select("SELECT COUNT (*) FROM public.\"baiviet\" WHERE url = '$url'");
-        if ($sql > 0) {
-            return 1;
-        } else
-            return 0;
+        $sql = DB::select("SELECT COUNT (*) FROM public.baiviet WHERE url = '$url'");
+        if($sql != 0)
+            return false;
+        else
+            return true;
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> e5259703feaeac50aa713ff584658757d82c5182
     public function getDanhMuc()
     {
         $data = DB::select("SELECT msbaiviet, public.\"baiviet\".\"msuser\", public.\"nguoidung\".\"tenuser\",public.\"baiviet\".\"msdanhmucbaiviet\", public.\"danhmucbaiviet\".\"tendanhmucbaiviet\", tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, nhan, searchtitle, searchdescription
@@ -266,22 +252,27 @@ class TinTucModel extends Model
         return $data;
     }
 
-<<<<<<< HEAD
     public function getBaiViet($id)
     {
         $data = DB::select("SELECT msbaiviet, msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, nhan, searchtitle, searchdescription
 FROM public.baiviet
 WHERE msbaiviet = '$id'");
-        if($data)
+        if ($data)
             return $data;
         else
             return 0;
-=======
+    }
     public function Xoa()
     {
         $data = DB::select("DELETE FROM public.baiviet
-	WHERE public.\"baiviet\".\"msbaiviet\" = '$this->'msbaiviet'");
+	WHERE public.\"baiviet\".\"msbaiviet\" = '$this->msbaiviet'");
         return $data;
->>>>>>> e5259703feaeac50aa713ff584658757d82c5182
+    }
+
+    public function postUpdateBaiViet($id)
+    {
+        DB::update("UPDATE public.baiviet
+	SET msbaiviet=?, msuser=?, msdanhmucbaiviet=?, tieude=?, noidung=?, url=?, anhdaidien=?, ngaytaobaiviet=?, trangthai=?, luotxem=?, nhan=?, searchtitle=?, searchdescription=?, [$this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->searchtitle, $this->searchdescription]
+	WHERE public.msbaiviet = '$id'");
     }
 }
