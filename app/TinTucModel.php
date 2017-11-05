@@ -244,7 +244,17 @@ class TinTucModel extends Model
         else
             return true;
     }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> dc754d4030fdef0260339a681a5ca41cc21249d1
+>>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
+>>>>>>> 9124a5466844fef483309f16fce0cde798e253d3
     public function getDanhMuc()
     {
         $data = DB::select("SELECT msbaiviet, public.\"baiviet\".\"msuser\", public.\"nguoidung\".\"tenuser\",public.\"baiviet\".\"msdanhmucbaiviet\", public.\"danhmucbaiviet\".\"tendanhmucbaiviet\", tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, nhan, searchtitle, searchdescription
@@ -265,6 +275,18 @@ WHERE msbaiviet = '$id'");
     }
     public function Xoa()
     {
+<<<<<<< HEAD
+        $data = DB::delete("DELETE FROM public.baiviet
+	WHERE public.\"baiviet\".\"msbaiviet\" = '$this->msbaiviet'");
+        return $data;
+    }
+
+    public function TrangThai()
+    {
+        $data = DB::update("UPDATE public.baiviet SET trangthai = $this->trangthai
+	    WHERE public.\"baiviet\".\"msbaiviet\" = '$this->msbaiviet'");
+        return $data;
+=======
         $data = DB::select("DELETE FROM public.baiviet
 	WHERE public.\"baiviet\".\"msbaiviet\" = '$this->msbaiviet'");
         return $data;
@@ -275,7 +297,15 @@ WHERE msbaiviet = '$id'");
         DB::update("UPDATE public.baiviet
 	SET msdanhmucbaiviet='$this->msdmbaiviet', tieude='$this->tieude', noidung='$this->noidung', url='$this->url', anhdaidien='$this->anhdaidien', nhan='$this->nhan', searchtitle='$this->searchtitle', searchdescription='$this->searchdescription'
 	WHERE msbaiviet = '$id'");
+>>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
     }
+<<<<<<< HEAD
+=======
+
+
+=======
+>>>>>>> dc754d4030fdef0260339a681a5ca41cc21249d1
+>>>>>>> 9124a5466844fef483309f16fce0cde798e253d3
    /* public function Them()
     {
         DB::insert('INSERT INTO public.baiviet(
