@@ -1,7 +1,7 @@
 @extends('admin.master')
 @section('content')
     @if(!session('non-object'))
-    <form action="#" method="post" enctype="multipart/form-data"
+    <form action="{{ action('TinTucController@postUpdateTinTuc') }}" method="post" enctype="multipart/form-data"
           class="form-horizontal" name="capnhattintuc">
         {{ csrf_field() }}
         <div class="row">
@@ -17,6 +17,7 @@
                                 <label>Nhập tiêu đề</label>
                                 <input type="text" id="texttieude" name="texttieude" class="form-control"
                                        placeholder="Nhập tên tiêu đề bài viết" value="{{ $rex -> tieude }}" required>
+                                <input type="hidden" value="{{ $rex -> msbaiviet }}" name="msbaiviet">
                             </div>
                             <div class="col-12">
                                 <label>Nhập URL</label>

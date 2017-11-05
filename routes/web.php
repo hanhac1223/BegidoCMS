@@ -50,8 +50,10 @@ Route::prefix('tintuc')->group(function (){
    Route::get('/xoa/{id}', 'TinTucController@getIDXoaTinTuc');
    Route::post('/capnhattrangthai', 'TinTucController@CapNhatTrangThai');
    Route::post('postThem', 'TinTucController@postThem');
+   Route::post('postUpdate', 'TinTucController@postUpdateTinTuc');
 
 });
+<<<<<<< HEAD
 /*
 Route::get('/tintuc', function () {
     return view('admin.Tintuc');
@@ -70,6 +72,9 @@ Route::get('/tintuc/danhmuc/capnhat', function () {
 });*/
 
 // ****** LOGIN ******** //
+=======
+
+>>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
 Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
 Route::get('postLogin', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
 
