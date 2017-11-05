@@ -53,31 +53,3 @@ Route::prefix('tintuc')->group(function (){
    Route::post('postUpdate', 'TinTucController@postUpdateTinTuc');
 
 });
-<<<<<<< HEAD
-/*
-Route::get('/tintuc', function () {
-    return view('admin.Tintuc');
-});
-
-Route::get('/tintuc/capnhat', function () {
-    return view('admin.Chinhsua_tintuc');
-});
-
-Route::get('/tintuc/danhmuc/them', function () {
-    return view('admin.Danhmuc_tintuc');
-});
-
-Route::get('/tintuc/danhmuc/capnhat', function () {
-    return view('admin.Chinhsua_dmtintuc');
-});*/
-
-// ****** LOGIN ******** //
-=======
-
->>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
-Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
-Route::get('postLogin', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
-
-Route::get('admin', ['as' => 'admin', function() {
-    return view('admin.tintuc');
-}]);
