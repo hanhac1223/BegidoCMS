@@ -232,47 +232,62 @@ class TinTucModel extends Model
     {
         $check = 0;
         $sql = DB::select("SELECT COUNT (*) FROM public.\"baiviet\" WHERE url = '$url'");
-        if($sql > 0)
-        {
+        if ($sql > 0) {
             $check = 1;
-        }
-        else
+        } else
             $check = 0;
-        if($check == 0){
+        if ($check == 0) {
             $data = DB::insert('INSERT INTO public.baiviet(
-	msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
-	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
+	        msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
             return 1;
-        }
-        else
-        {
+        } else {
             return 0;
         }
     }
+
     public function Kiemtra_URL($url)
     {
         $sql = DB::select("SELECT COUNT (*) FROM public.\"baiviet\" WHERE url = '$url'");
-        if($sql > 0)
-        {
+        if ($sql > 0) {
             return 1;
-        }
-        else
+        } else
             return 0;
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> e5259703feaeac50aa713ff584658757d82c5182
+>>>>>>> f71775ec813c732eac64d25771dcb4d12be2c77f
     public function getDanhMuc()
     {
         $data = DB::select("SELECT msbaiviet, public.\"baiviet\".\"msuser\", public.\"nguoidung\".\"tenuser\",public.\"baiviet\".\"msdanhmucbaiviet\", public.\"danhmucbaiviet\".\"tendanhmucbaiviet\", tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, nhan, searchtitle, searchdescription
-FROM public.baiviet, public.nguoidung, public.danhmucbaiviet
-WHERE public.\"baiviet\".\"msuser\" = public.\"nguoidung\".\"msuser\" AND public.\"baiviet\".\"msdanhmucbaiviet\" = public.\"danhmucbaiviet\".\"msdanhmucbaiviet\"");
+        FROM public.baiviet, public.nguoidung, public.danhmucbaiviet
+        WHERE public.\"baiviet\".\"msuser\" = public.\"nguoidung\".\"msuser\" AND public.\"baiviet\".\"msdanhmucbaiviet\" = public.\"danhmucbaiviet\".\"msdanhmucbaiviet\"");
         return $data;
     }
 
+<<<<<<< HEAD
+    public function getBaiViet($id)
+    {
+        $data = DB::select("SELECT msbaiviet, msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, nhan, searchtitle, searchdescription
+FROM public.baiviet
+WHERE msbaiviet = '$id'");
+        if($data)
+            return $data;
+        else
+            return 0;
+=======
     public function Xoa()
     {
         $data = DB::select("DELETE FROM public.baiviet
 	WHERE public.\"baiviet\".\"msbaiviet\" = '$this->'msbaiviet'");
         return $data;
+>>>>>>> e5259703feaeac50aa713ff584658757d82c5182
     }
+<<<<<<< HEAD
 
    /* public function Them()
     {
@@ -280,4 +295,6 @@ WHERE public.\"baiviet\".\"msuser\" = public.\"nguoidung\".\"msuser\" AND public
 	msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
 	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
     }*/
+=======
+>>>>>>> f71775ec813c732eac64d25771dcb4d12be2c77f
 }
