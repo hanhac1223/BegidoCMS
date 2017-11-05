@@ -6,23 +6,43 @@ use App\ThanhVienModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
+use App\Http\Requests\LoginRequest;
+use App\User;
 
 
 class LoginController extends Controller
 {
+
     public function getLogin()
     {
-        return view('admin.login');
+//        if (!Auth::check()) {
+            return view('admin.login');
+//        }
+//        else {
+//            return redirect('admin');
+//        }
     }
 
-    public function postLogin()
+    public function postLogin(LoginRequest $request)
     {
-        $tv = new ThanhVienModel();
-        $kq = $tv->checkUserLogin($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']);
-        if ($kq) {
-            echo "Đã login";
-        } else {
-            echo "Sai tài khoản pw";
+
+        $tendangnhap = $request->txtTaiKhoan;
+        $matkhau     = sha1($request->txtMatKhau);
+        $login = [
+            'tendangnhap'  => $tendangnhap,
+            'matkhau'      => $matkhau
+        ];
+
+
+        if (Auth::attempt($login)) {
+//            return redirect()->route('admin.index');
+            return "IF";
         }
+        else
+        {
+//            return redirect()->back()->with('fail','Bạn nhập sai tài khoản hoặc mật khẩu');
+            return "ELSE";
+        }
+
     }
 }

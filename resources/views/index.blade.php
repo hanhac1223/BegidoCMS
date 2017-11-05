@@ -82,7 +82,7 @@
     </div>
     </nav>
     <div class="container-fluid">
-                 
+
     </div>
     <script src="public/duan_tintuc/public/js/jquery.min.js"></script>
     <script src="public/duan_tintuc/public/js/popper.min.js"></script>

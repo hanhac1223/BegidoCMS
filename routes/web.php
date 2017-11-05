@@ -53,9 +53,71 @@ Route::prefix('tintuc')->group(function (){
    Route::post('postUpdate', 'TinTucController@postUpdateTinTuc');
 
 });
-Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
-Route::get('postLogin', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
 
+
+
+//Route::get('/tintuc', function () {
+//    return view('admin.Tintuc');
+//});
+//
+//Route::get('/tintuc/capnhat', function () {
+//    return view('admin.Chinhsua_tintuc');
+//});
+//
+//Route::get('/tintuc/danhmuc/them', function () {
+//    return view('admin.Danhmuc_tintuc');
+//});
+//
+//Route::get('/tintuc/danhmuc/capnhat', function () {
+//    return view('admin.Chinhsua_dmtintuc');
+//});
+
+// ****** LOGIN ******** //
+//Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
+//Route::get('postLogin', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
+
+=======
+<<<<<<< HEAD
+/*
+Route::get('/tintuc', function () {
+    return view('admin.Tintuc');
+});
+
+Route::get('/tintuc/capnhat', function () {
+    return view('admin.Chinhsua_tintuc');
+});
+
+Route::get('/tintuc/danhmuc/them', function () {
+    return view('admin.Danhmuc_tintuc');
+});
+
+Route::get('/tintuc/danhmuc/capnhat', function () {
+    return view('admin.Chinhsua_dmtintuc');
+});*/
+
+// ****** LOGIN ******** //
+=======
+
+>>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
+>>>>>>> 729caebea0270e524998dadfad79837f5b646520
+>>>>>>> 86ed12b29b820b08fdbd0bdbf367f1ee12932beb
+Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
+Route::post('login', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
+
+Route::group(['middleware' => 'auth'],  function () {
+    Route::group(['prefix' => 'admin'], function () {
+        Route::get('/', function () {
+            return view('admin.index');
+        });
+    });
+});
+
+<<<<<<< HEAD
+=======
 Route::get('admin', ['as' => 'admin', function() {
     return view('admin.tintuc');
 }]);
+>>>>>>> 729caebea0270e524998dadfad79837f5b646520
