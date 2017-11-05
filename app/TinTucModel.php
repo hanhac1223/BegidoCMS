@@ -244,6 +244,16 @@ class TinTucModel extends Model
         else
             return true;
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> e5259703feaeac50aa713ff584658757d82c5182
+>>>>>>> f71775ec813c732eac64d25771dcb4d12be2c77f
+>>>>>>> 6c10d9f6270fcbae9d9879b3cea54cd61bfa60ed
     public function getDanhMuc()
     {
         $data = DB::select("SELECT msbaiviet, public.\"baiviet\".\"msuser\", public.\"nguoidung\".\"tenuser\",public.\"baiviet\".\"msdanhmucbaiviet\", public.\"danhmucbaiviet\".\"tendanhmucbaiviet\", tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, nhan, searchtitle, searchdescription
@@ -275,4 +285,14 @@ WHERE msbaiviet = '$id'");
 	SET msbaiviet=?, msuser=?, msdanhmucbaiviet=?, tieude=?, noidung=?, url=?, anhdaidien=?, ngaytaobaiviet=?, trangthai=?, luotxem=?, nhan=?, searchtitle=?, searchdescription=?, [$this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->searchtitle, $this->searchdescription]
 	WHERE public.msbaiviet = '$id'");
     }
+<<<<<<< HEAD
+
+   /* public function Them()
+    {
+        DB::insert('INSERT INTO public.baiviet(
+	msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
+	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
+    }*/
+=======
+>>>>>>> f71775ec813c732eac64d25771dcb4d12be2c77f
 }
