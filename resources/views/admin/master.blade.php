@@ -21,79 +21,17 @@
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown link
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
+                <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Tin tức
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Thêm tin tức</a>
-                    <a class="dropdown-item" href="#">Danh sách tin tức</a>
-                    <a class="dropdown-item" href="#">Danh mục tin tức</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Đồng hồ
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Thêm đồng hồ</a>
-                    <a class="dropdown-item" href="#">Danh sách đồng hồ</a>
-                    <a class="dropdown-item" href="#">Danh mục đồng hồ</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Đơn hàng
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Danh sách đơn hàng</a>
-                    <a class="dropdown-item" href="#">Chỉnh sửa trạng thái đơn hàng</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Thống kê
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Tin tức</a>
-                    <a class="dropdown-item" href="#">Sản phẩm</a>
-                    <a class="dropdown-item" href="#">Doanh thu</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Thành viên
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Thêm thành viên</a>
-                    <a class="dropdown-item" href="#">Quản lý thành viên</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Cài đặt
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Quảng cáo</a>
-                    <a class="dropdown-item" href="#">Silder</a>
+                    <a class="dropdown-item" href="{!! asset('tintuc/them') !!}">Thêm tin tức</a>
+                    <a class="dropdown-item" href="{!! asset('tintuc') !!}">Danh sách tin tức</a>
                 </div>
             </li>
         </ul>
@@ -118,4 +56,11 @@
     @yield('content')
 </div>
 </body>
+<<<<<<< HEAD
 </html>
+<script src="{!!  asset('citi_admin/js/jquery.min.js')  !!}"></script>
+<script src="{!!  asset('citi_admin/js/popper.min.js') !!}"></script>
+<script src="{!!  asset('citi_admin/js/bootstrap.min.js') !!}"></script>
+=======
+</html>
+>>>>>>> 729caebea0270e524998dadfad79837f5b646520
