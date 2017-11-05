@@ -7,8 +7,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-
-                    <button type="button" class="btn btn-primary">Thêm bài viết mới</button>
+                    <a  class="btn btn-primary" href="{!! asset('tintuc/them') !!}">Thêm bài viết mới</a>
                 </div>
             </div>
 
