@@ -22,10 +22,7 @@ class TinTucController extends Controller
         $index = new TinTucModel;
         return view('admin.Them_tintuc', ['urltieude' => $index->getDanhMuc()]);
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> f71775ec813c732eac64d25771dcb4d12be2c77f
     public function DanhSachTinTuc()
     {
         $dm = new TinTucModel();
@@ -48,7 +45,6 @@ class TinTucController extends Controller
         $tintuc = new TinTucModel();
         $tintuc->setMsbaiviet($id);
         $data = $tintuc->Xoa();
-
         if($data != 0)
         {
             return redirect()->back()->with('success','The Message');
@@ -58,10 +54,14 @@ class TinTucController extends Controller
             return redirect()->back()->with('fail','The Message');
         }
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> f71775ec813c732eac64d25771dcb4d12be2c77f
+    public function CapNhatTrangThai(Request $request){
+        $tintuc = new TinTucModel();
+        $tintuc->setMsbaiviet($request->input('id'));
+        $tintuc->setTrangthai($request->input('trangthai'));
+        return $tintuc->TrangThai();
+    }
+
     public function postThem( Request $request)
     {
         $tintuc = new TinTucModel;
@@ -92,17 +92,11 @@ class TinTucController extends Controller
         }
 
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> f71775ec813c732eac64d25771dcb4d12be2c77f
     public function getTinTuc()
     {
         $dm = new TinTucModel();
         return view('admin.Tintuc', ['danhmuc' => $dm->getDanhMuc()]);
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> f71775ec813c732eac64d25771dcb4d12be2c77f
 }

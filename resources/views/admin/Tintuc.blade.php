@@ -22,6 +22,7 @@
                             <th>Tác giả</th>
                             <th>Danh mục</th>
                             <th>Lượt xem</th>
+                            <th>Trạng thái</th>
                             <th>Tác vụ</th>
                         </tr>
                         </thead>
@@ -36,6 +37,13 @@
                                 </td>
                                 <td>{{ $baiviet->luotxem }}</td>
                                 <td>
+                                    @if( $baiviet->trangthai ==1 )
+                                        <button class="form-control btn-success btn-public" value="{{ $baiviet->msbaiviet }}" data="{{ $baiviet->trangthai }}">Public</button>
+                                    @else
+                                        <button class="form-control btn-danger btn-public" value="{{ $baiviet->msbaiviet }}" data="{{ $baiviet->trangthai }}">Unpublic</button>
+                                    @endif
+                                </td>
+                                <td>
                                     <a class="btn btn-info" href="tintuc/capnhat/{{ $baiviet->msbaiviet }}">
                                         <i class="fa fa-edit "></i>
                                     </a>
@@ -49,7 +57,6 @@
                     </table>
                 </div>
             </div>
-
             <ul class="pagination">
                 <li class="page-item"><a class="page-link" href="#">Prev</a>
                 </li>
@@ -67,4 +74,25 @@
             </ul>
         </div>
     </div>
+    <script>
+        $(document).ready(function () {
+            $('.btn-public').click(function () {
+                var trangthai;
+                if($(this).attr('data') == 1) trangthai=0;
+                else trangthai=1;
+                $.ajax({
+                    type: 'POST',
+                    url: 'tintuc/capnhattrangthai',
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                        "id": $(this).val(),
+                        "trangthai": trangthai
+                    },
+                })
+                    .done(function(data) {
+                    location.reload();
+                });
+            });
+        });
+    </script>
 @endsection
