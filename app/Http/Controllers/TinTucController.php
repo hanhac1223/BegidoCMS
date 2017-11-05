@@ -22,7 +22,10 @@ class TinTucController extends Controller
         $index = new TinTucModel;
         return view('admin.Them_tintuc', ['urltieude' => $index->getDanhMuc()]);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dc754d4030fdef0260339a681a5ca41cc21249d1
     public function DanhSachTinTuc()
     {
         $dm = new TinTucModel();
@@ -52,12 +55,17 @@ class TinTucController extends Controller
             return redirect()->back()->with('fail', 'The Message');
         }
     }
+<<<<<<< HEAD
 
 
     public function postThem(Request $request)
+=======
+    public function postThem( Request $request)
+>>>>>>> dc754d4030fdef0260339a681a5ca41cc21249d1
     {
         $tintuc = new TinTucModel;
-        if (!($tintuc->Kiemtra_URL($request->input('textURL'), '-'))) {
+        if (!($tintuc->Kiemtra_URL(str_slug($request->input('textURL'), '-')))) {
+
             $tintuc->setTieude($request->input('texttieude'));
             $tintuc->setMsdmbaiviet($request->msdmbaiviet);
             $tintuc->setNoidung($request->input('editor'));
@@ -82,13 +90,19 @@ class TinTucController extends Controller
         else
             return redirect()->back()->with('fail', 'Thêm tin tức thất bại!');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dc754d4030fdef0260339a681a5ca41cc21249d1
     public function getTinTuc()
     {
         $dm = new TinTucModel();
         return view('admin.Tintuc', ['danhmuc' => $dm->getDanhMuc()]);
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> dc754d4030fdef0260339a681a5ca41cc21249d1
     public function postUpdateTinTuc(Request $request)
     {
         $tintuc = new TinTucModel;
@@ -99,6 +113,7 @@ class TinTucController extends Controller
             $tintuc->setNoidung($request->input('editor'));
             $tintuc->setUrl(str_slug($request->input('textURL'), '-'));
             $tintuc->setAnhdaidien($request->input('luuanh'));
+            $tintuc->setNhan(" ");
             $tintuc->setSearchtitle($request->input('textSTitle'));
             $tintuc->setSearchdescription($request->input('textSURL'));
 
