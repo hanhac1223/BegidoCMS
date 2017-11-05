@@ -228,7 +228,6 @@ class TinTucModel extends Model
         $this->nhan = $nhan;
     }
 
-<<<<<<< HEAD
     public function Them($url)
     {
         $check = 0;
@@ -260,7 +259,6 @@ class TinTucModel extends Model
         else
             return 0;
     }
-=======
     public function getDanhMuc()
     {
         $data = DB::select("SELECT msbaiviet, public.\"baiviet\".\"msuser\", public.\"nguoidung\".\"tenuser\",public.\"baiviet\".\"msdanhmucbaiviet\", public.\"danhmucbaiviet\".\"tendanhmucbaiviet\", tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, nhan, searchtitle, searchdescription
@@ -276,14 +274,10 @@ WHERE public.\"baiviet\".\"msuser\" = public.\"nguoidung\".\"msuser\" AND public
         return $data;
     }
 
-    public function Them()
+   /* public function Them()
     {
         DB::insert('INSERT INTO public.baiviet(
 	msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
 	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
-    }
-
-
-
->>>>>>> 260fd6766e92ab1671bdc5135f6ebc56f0e9fd70
+    }*/
 }
