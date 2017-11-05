@@ -52,30 +52,36 @@ Route::prefix('tintuc')->group(function (){
 
 });
 
-<<<<<<< HEAD
 
-Route::get('/tintuc', function () {
-    return view('admin.Tintuc');
-});
 
-Route::get('/tintuc/capnhat', function () {
-    return view('admin.Chinhsua_tintuc');
-});
-
-Route::get('/tintuc/danhmuc/them', function () {
-    return view('admin.Danhmuc_tintuc');
-});
-
-Route::get('/tintuc/danhmuc/capnhat', function () {
-    return view('admin.Chinhsua_dmtintuc');
-});
+//Route::get('/tintuc', function () {
+//    return view('admin.Tintuc');
+//});
+//
+//Route::get('/tintuc/capnhat', function () {
+//    return view('admin.Chinhsua_tintuc');
+//});
+//
+//Route::get('/tintuc/danhmuc/them', function () {
+//    return view('admin.Danhmuc_tintuc');
+//});
+//
+//Route::get('/tintuc/danhmuc/capnhat', function () {
+//    return view('admin.Chinhsua_dmtintuc');
+//});
 
 // ****** LOGIN ******** //
-Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
-Route::get('postLogin', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
+//Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
+//Route::get('postLogin', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
 
-Route::get('admin', ['as' => 'admin', function() {
-    return view('admin.tintuc');
-}]);
-=======
->>>>>>> 172c45a046b5708e3f218aded34dd6bd2f1bca5c
+Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
+Route::post('login', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
+
+Route::group(['middleware' => 'auth'],  function () {
+    Route::group(['prefix' => 'admin'], function () {
+        Route::get('/', function () {
+            return view('admin.index');
+        });
+    });
+});
+
