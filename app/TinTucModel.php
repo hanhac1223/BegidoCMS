@@ -228,37 +228,33 @@ class TinTucModel extends Model
         $this->nhan = $nhan;
     }
 
-    public function Them($url)
+    public function Them()
     {
-        $check = 0;
-        $sql = DB::select("SELECT COUNT (*) FROM public.\"baiviet\" WHERE url = '$url'");
-        if($sql > 0)
-        {
-            $check = 1;
-        }
-        else
-            $check = 0;
-        if($check == 0){
-            $data = DB::insert('INSERT INTO public.baiviet(
-	        msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
+        $data = DB::insert('INSERT INTO public.baiviet(
+        msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
+
     }
+
     public function Kiemtra_URL($url)
     {
-        $sql = DB::select("SELECT COUNT (*) FROM public.\"baiviet\" WHERE url = '$url'");
-        if($sql > 0)
-        {
-            return 1;
-        }
+        $sql = DB::select("SELECT COUNT (*) FROM public.baiviet WHERE url = '$url'");
+        if($sql != 0)
+            return false;
         else
-            return 0;
+            return true;
     }
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> dc754d4030fdef0260339a681a5ca41cc21249d1
+>>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
+>>>>>>> 9124a5466844fef483309f16fce0cde798e253d3
     public function getDanhMuc()
     {
         $data = DB::select("SELECT msbaiviet, public.\"baiviet\".\"msuser\", public.\"nguoidung\".\"tenuser\",public.\"baiviet\".\"msdanhmucbaiviet\", public.\"danhmucbaiviet\".\"tendanhmucbaiviet\", tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, nhan, searchtitle, searchdescription
@@ -267,10 +263,53 @@ class TinTucModel extends Model
         return $data;
     }
 
+    public function getBaiViet($id)
+    {
+        $data = DB::select("SELECT msbaiviet, msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, nhan, searchtitle, searchdescription
+FROM public.baiviet
+WHERE msbaiviet = '$id'");
+        if ($data)
+            return $data;
+        else
+            return 0;
+    }
     public function Xoa()
     {
-        $data = DB::select("DELETE FROM public.baiviet
-	WHERE public.\"baiviet\".\"msbaiviet\" = '$this->'msbaiviet'");
+<<<<<<< HEAD
+        $data = DB::delete("DELETE FROM public.baiviet
+	WHERE public.\"baiviet\".\"msbaiviet\" = '$this->msbaiviet'");
         return $data;
     }
+
+    public function TrangThai()
+    {
+        $data = DB::update("UPDATE public.baiviet SET trangthai = $this->trangthai
+	    WHERE public.\"baiviet\".\"msbaiviet\" = '$this->msbaiviet'");
+        return $data;
+=======
+        $data = DB::select("DELETE FROM public.baiviet
+	WHERE public.\"baiviet\".\"msbaiviet\" = '$this->msbaiviet'");
+        return $data;
+    }
+
+    public function postUpdateBaiViet($id)
+    {
+        DB::update("UPDATE public.baiviet
+	SET msdanhmucbaiviet='$this->msdmbaiviet', tieude='$this->tieude', noidung='$this->noidung', url='$this->url', anhdaidien='$this->anhdaidien', nhan='$this->nhan', searchtitle='$this->searchtitle', searchdescription='$this->searchdescription'
+	WHERE msbaiviet = '$id'");
+>>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
+    }
+<<<<<<< HEAD
+=======
+
+
+=======
+>>>>>>> dc754d4030fdef0260339a681a5ca41cc21249d1
+>>>>>>> 9124a5466844fef483309f16fce0cde798e253d3
+   /* public function Them()
+    {
+        DB::insert('INSERT INTO public.baiviet(
+	msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
+	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
+    }*/
 }

@@ -6,6 +6,13 @@
     <link href="{!!  asset('citi_admin/css/bootstrap.css')  !!}" rel="stylesheet">
     <link href="{!!  asset('citi_admin/css/style.css')  !!}" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<<<<<<< HEAD
+=======
+
+>>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
+    <script src="{!!  asset('citi_admin/js/jquery.min.js')  !!}"></script>
+    <script src="{!!  asset('citi_admin/js/bootstrap.min.js') !!}"></script>
+    <script src="{!!  asset('citi_admin/js/popper.min.js') !!}"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -49,7 +56,11 @@
     @yield('content')
 </div>
 </body>
+<<<<<<< HEAD
 </html>
 <script src="{!!  asset('citi_admin/js/jquery.min.js')  !!}"></script>
 <script src="{!!  asset('citi_admin/js/popper.min.js') !!}"></script>
 <script src="{!!  asset('citi_admin/js/bootstrap.min.js') !!}"></script>
+=======
+</html>
+>>>>>>> 729caebea0270e524998dadfad79837f5b646520

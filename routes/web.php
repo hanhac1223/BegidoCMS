@@ -48,9 +48,12 @@ Route::prefix('tintuc')->group(function (){
    Route::get('/them', 'TinTucController@getDanhMucTinTuc');
    Route::get('/capnhat/{id}', 'TinTucController@getIDCapNhatTinTuc');
    Route::get('/xoa/{id}', 'TinTucController@getIDXoaTinTuc');
+   Route::post('/capnhattrangthai', 'TinTucController@CapNhatTrangThai');
    Route::post('postThem', 'TinTucController@postThem');
+   Route::post('postUpdate', 'TinTucController@postUpdateTinTuc');
 
 });
+<<<<<<< HEAD
 
 
 
@@ -74,6 +77,30 @@ Route::prefix('tintuc')->group(function (){
 //Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
 //Route::get('postLogin', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
 
+=======
+<<<<<<< HEAD
+/*
+Route::get('/tintuc', function () {
+    return view('admin.Tintuc');
+});
+
+Route::get('/tintuc/capnhat', function () {
+    return view('admin.Chinhsua_tintuc');
+});
+
+Route::get('/tintuc/danhmuc/them', function () {
+    return view('admin.Danhmuc_tintuc');
+});
+
+Route::get('/tintuc/danhmuc/capnhat', function () {
+    return view('admin.Chinhsua_dmtintuc');
+});*/
+
+// ****** LOGIN ******** //
+=======
+
+>>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
+>>>>>>> 729caebea0270e524998dadfad79837f5b646520
 Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
 Route::post('login', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
 
@@ -85,3 +112,9 @@ Route::group(['middleware' => 'auth'],  function () {
     });
 });
 
+<<<<<<< HEAD
+=======
+Route::get('admin', ['as' => 'admin', function() {
+    return view('admin.tintuc');
+}]);
+>>>>>>> 729caebea0270e524998dadfad79837f5b646520
