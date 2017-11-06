@@ -15,17 +15,7 @@ class LoginController extends Controller
 
     public function getLogin()
     {
-        if (Session::has('LoginSuccess')) {
-//            return redirect()->action('TinTucController@DanhSachTinTuc');
-//            return "IF SUS";
-//            return redirect()->route('tintuc');
-//            return redirect('admin')->route('');
-            return "CHƯA đăng nahp65";
-        }
-
-        else {
-            return view('admin.login');
-        }
+        return view('admin.login');
     }
 
     public function postLogin(LoginRequest $request)
@@ -36,28 +26,12 @@ class LoginController extends Controller
         $kq = $tv->checkUserLogin($tendangnhap, $matkhau);
         if ($kq)
         {
-            Session::put('LoginSuccess','Thành công');
-//           return redirect()->action('TinTucController@DanhSachTinTuc');
-//            return redirect()->route('/');
-//            return redirect('admin');
-            return "THÀNH CÔNG";
+            Session::set('TrangThaiDangnhap',$kq);
+            return redirect()->action('TinTucController@DanhSachTinTuc');
         }
         else
         {
             return redirect()->back()->with('fail','Login thất bại!');
         }
-//        $login = [
-//            'tendangnhap' => $request->txtTaiKhoan,
-//            'matkhau'     => sha1($request->txtMatKhau)
-//        ];
-//        if (Auth::attempt($login))
-//        {
-////            return redirect('admin');
-//            return "A";
-//        }
-//        else {
-////            return redirect()->back()->with('fail','Login thất bại!');
-//            return "ELSE";
-//        }
     }
 }
