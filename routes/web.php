@@ -53,56 +53,8 @@ Route::prefix('tintuc')->group(function (){
    Route::post('postUpdate', 'TinTucController@postUpdateTinTuc');
 
 });
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 
 
-
-//Route::get('/tintuc', function () {
-//    return view('admin.Tintuc');
-//});
-//
-//Route::get('/tintuc/capnhat', function () {
-//    return view('admin.Chinhsua_tintuc');
-//});
-//
-//Route::get('/tintuc/danhmuc/them', function () {
-//    return view('admin.Danhmuc_tintuc');
-//});
-//
-//Route::get('/tintuc/danhmuc/capnhat', function () {
-//    return view('admin.Chinhsua_dmtintuc');
-//});
-
-// ****** LOGIN ******** //
-//Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
-//Route::get('postLogin', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
-
-=======
-<<<<<<< HEAD
-/*
-Route::get('/tintuc', function () {
-    return view('admin.Tintuc');
-});
-
-Route::get('/tintuc/capnhat', function () {
-    return view('admin.Chinhsua_tintuc');
-});
-
-Route::get('/tintuc/danhmuc/them', function () {
-    return view('admin.Danhmuc_tintuc');
-});
-
-Route::get('/tintuc/danhmuc/capnhat', function () {
-    return view('admin.Chinhsua_dmtintuc');
-});*/
-
-// ****** LOGIN ******** //
-=======
-
->>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
->>>>>>> 729caebea0270e524998dadfad79837f5b646520
 Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
 Route::post('login', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
 
@@ -114,10 +66,7 @@ Route::group(['middleware' => 'auth'],  function () {
     });
 });
 
-<<<<<<< HEAD
-=======
 Route::get('admin', ['as' => 'admin', function() {
     return view('admin.tintuc');
 }]);
->>>>>>> 729caebea0270e524998dadfad79837f5b646520
->>>>>>> ff790bcf764f538f80a1b98d77cde96addb23781
+
