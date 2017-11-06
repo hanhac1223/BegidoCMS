@@ -22,7 +22,22 @@ class TinTucController extends Controller
         $index = new TinTucModel;
         return view('admin.Them_tintuc', ['urltieude' => $index->getDanhMuc()]);
     }
+<<<<<<< HEAD
+=======
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> dc754d4030fdef0260339a681a5ca41cc21249d1
+>>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
+>>>>>>> 9124a5466844fef483309f16fce0cde798e253d3
+>>>>>>> 86ed12b29b820b08fdbd0bdbf367f1ee12932beb
+>>>>>>> 592c232a542eec399b1c7120911a9bb847e049d3
     public function DanhSachTinTuc()
     {
         $dm = new TinTucModel();
@@ -62,6 +77,8 @@ class TinTucController extends Controller
         $tintuc->setTrangthai($request->input('trangthai'));
         return $tintuc->TrangThai();
     }
+<<<<<<< HEAD
+=======
 
 
 
@@ -76,6 +93,14 @@ class TinTucController extends Controller
 
 
 
+<<<<<<< HEAD
+=======
+    public function postThem(Request $request)
+=======
+>>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
+>>>>>>> 9124a5466844fef483309f16fce0cde798e253d3
+>>>>>>> 86ed12b29b820b08fdbd0bdbf367f1ee12932beb
+>>>>>>> 592c232a542eec399b1c7120911a9bb847e049d3
     public function postThem( Request $request)
     {
         $tintuc = new TinTucModel;
@@ -106,12 +131,39 @@ class TinTucController extends Controller
             return redirect()->back()->with('fail', 'Thêm tin tức thất bại!');
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> dc754d4030fdef0260339a681a5ca41cc21249d1
+>>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
+>>>>>>> 9124a5466844fef483309f16fce0cde798e253d3
+>>>>>>> 86ed12b29b820b08fdbd0bdbf367f1ee12932beb
+>>>>>>> 592c232a542eec399b1c7120911a9bb847e049d3
     public function getTinTuc()
     {
         $dm = new TinTucModel();
         return view('admin.Tintuc', ['danhmuc' => $dm->getDanhMuc()]);
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> dc754d4030fdef0260339a681a5ca41cc21249d1
+>>>>>>> 9124a5466844fef483309f16fce0cde798e253d3
+>>>>>>> 86ed12b29b820b08fdbd0bdbf367f1ee12932beb
+>>>>>>> 592c232a542eec399b1c7120911a9bb847e049d3
     public function postUpdateTinTuc(Request $request)
     {
         $tintuc = new TinTucModel;
@@ -131,5 +183,8 @@ class TinTucController extends Controller
         } else
             return redirect()->back()->with('non-oject', 'Cập nhật tin tức thất bại!');
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 592c232a542eec399b1c7120911a9bb847e049d3
 }
