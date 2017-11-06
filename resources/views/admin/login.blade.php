@@ -72,20 +72,25 @@
 <div class = "container">
     <div class="wrapper">
         <div class="error">
-            @include('admin.error')
-            @if(session('fail'))
-            <div class="alert">
-                {{ session('fail') }}
-            </div>
-            @endif
+            {{--@include('admin.error')--}}
+            {{--@if(session('fail'))--}}
+            {{--<div class="alert">--}}
+                {{--{{ session('fail') }}--}}
+            {{--</div>--}}
+            {{--@endif--}}
+            {{--@if(session('loginSuccess'))--}}
+            {{--<div class="alert">--}}
+                {{--{{ session('loginSuccess') }}--}}
+            {{--</div>--}}
+            {{--@endif--}}
         </div>
-        <form action="{{  url('login') }}" method="post" name="Login_Form" class="form-signin" role="form">
+        <form action="{{  route('postLogin') }}" method="post" name="Login_Form" class="form-signin" role="form">
             {!! csrf_field() !!}
             <h3 class="form-signin-heading">BegidoCMS</h3>
             <hr class="colorgraph"><br>
             <input type="text" class="form-control" name="txtTaiKhoan" placeholder="Username" required="" autofocus="" />
             <input type="password" class="form-control" name="txtMatKhau" placeholder="Password" required=""/>
-            <button class="btn btn-lg btn-primary btn-block"  name="btnLogin" value="Login" type="Submit">Đăng nhập</button>
+            <button class="btn btn-lg btn-primary btn-block"  name="login" value="Login" type="Submit">Đăng nhập</button>
         </form>
     </div>
 </div>

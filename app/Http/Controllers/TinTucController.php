@@ -84,19 +84,26 @@ class TinTucController extends Controller
 =======
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
+=======
+>>>>>>> b1108c940f4be61def8fbd14ee600a805909a844
 
-        if ($data != 0) {
-            return redirect()->back()->with('success', 'The Message');
-        } else {
-            return redirect()->back()->with('fail', 'The Message');
-        }
-    }
+
+//        if ($data != 0) {
+//            return redirect()->back()->with('success', 'The Message');
+//        } else {
+//            return redirect()->back()->with('fail', 'The Message');
+//        }
+//    }
+
+
+
+
 
 <<<<<<< HEAD
 =======
-
     public function postThem(Request $request)
 =======
 >>>>>>> d411ae29da2e98d32a81ff88fce44d274b664635
@@ -185,4 +192,8 @@ class TinTucController extends Controller
         } else
             return redirect()->back()->with('non-oject', 'Cập nhật tin tức thất bại!');
     }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 592c232a542eec399b1c7120911a9bb847e049d3
 }

@@ -306,6 +306,11 @@ WHERE msbaiviet = '$id'");
 	WHERE msbaiviet = '$id'");
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> b1108c940f4be61def8fbd14ee600a805909a844
 =======
 <<<<<<< HEAD
     
@@ -318,6 +323,7 @@ WHERE msbaiviet = '$id'");
 >>>>>>> dc754d4030fdef0260339a681a5ca41cc21249d1
 >>>>>>> 9124a5466844fef483309f16fce0cde798e253d3
 >>>>>>> 86ed12b29b820b08fdbd0bdbf367f1ee12932beb
+>>>>>>> 592c232a542eec399b1c7120911a9bb847e049d3
    /* public function Them()
     {
         DB::insert('INSERT INTO public.baiviet(
