@@ -27,25 +27,15 @@
                                 <label>Nhập tiêu đề</label>
                                 <input type="text" id="texttieude" name="texttieude" class="form-control"
                                        placeholder="Nhập tên tiêu đề bài viết" required>
+                                <br>
                             </div>
                             <div class="col-12">
                                 <label>Nhập URL</label>
-                                <input type="text" name="textURL" class="form-control"
+                                <input type="text" name="textURL" id="textURL" class="form-control"
                                        placeholder="Nhập URL" required>
-                            </div>
-                            <div class="col-12">
-                                <label>Search Title</label>
-                                <input type="text" id="Search" name="textSTitle" class="form-control"
-                                       placeholder="Search Title">
-                            </div>
-                            <div class="col-12">
-                                <label>Search Description</label>
-                                <input type="text" id="Description" name="textSURL" class="form-control"
-                                       placeholder="Search Description">
+                                <br>
                             </div>
                             <div class="col-6">
-                                <label>Tag</label>
-                                <input type="text" name="texttag" class="form-control" placeholder="Tag">
                                 <label>Chọn danh mục bài viết</label>
                                 <select id="idmsdanhmucbaiviet" name="msdmbaiviet" class="form-control">
                                     @foreach($danhmuc as $index)
@@ -53,25 +43,39 @@
                                     @endforeach
                                 </select>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4> General </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
                             <div class="col-6">
-                                <div class="row">
-                                    <div class="col-3">
-                                        <label>Chọn ảnh đại diện</label>
-                                        <br>
-                                        <button type="button" class="btn btn-warning" id="url" name="photo"
-                                                onclick="openPopup()" > Chọn
-                                        </button>
-                                    </div>
-                                    <div class="col-9">
-                                        <input type="hidden" value="" id="luuurl" name="luuanh">
-                                        <img src="" alt="" id="anhdaidien" name="anhdaidien" class="rounded mx-auto d-block"
-                                             style="height: 140px; padding-top: 15px;" >
-                                    </div>
+                                <label>Tag</label>
+                                <input type="text" name="texttag" class="form-control" placeholder="Tag">
+                                <br>
+                            </div>
+                            <div class="col-12" >
+                                <label>Chọn ảnh đại diện</label>
+                                <button type="button" class="btn btn-warning" id="url" name="photo"
+                                        onclick="openPopup()"> Chọn
+                                </button>
+                            </div>
+                            <div class="col-6"  >
+                                <div style="border: 1px solid #ececec;">
+                                <input type="hidden" value="" id="luuurl" name="luuanh">
+                                <img src="" alt="" id="anhdaidien" name="anhdaidien"
+                                     class="rounded mx-auto d-block"
+                                     style="height: 140px; padding-top: 3px; ">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <label>Nhập nội dung bài viết </label>
-                                <textarea class="editor" name="editor" required></textarea>
+                                <textarea class="editor" name="editor" id="editor" required></textarea>
                             </div>
                             <div class="col-12 float-right">
                                 <br>
@@ -82,10 +86,30 @@
                     </div>
                 </div>
             </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4> Search </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Search Title</label>
+                                <input type="text" id="textSTitle" name="textSTitle" class="form-control"
+                                       placeholder="Search Title">
+                                <br>
+                            </div>
+                            <div class="col-12">
+                                <label>Search Description</label>
+                                <input type="text" id="textSURL" name="textSURL" class="form-control"
+                                       placeholder="Search Description">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
-    <script src="../citi_admin/ckeditor/ckeditor.js"></script>
-    <script src="../citi_admin/ckfinder/ckfinder.js"></script>
     <script>
         CKEDITOR.replace('editor', {
             height: '400px'
@@ -93,30 +117,66 @@
     </script>
     <script type="text/javascript">
         function openPopup() {
-            CKFinder.popup( {
+            CKFinder.popup({
                 width: 800,
                 height: 500,
                 chooseFiles: true,
                 resourceType: 'Images',
-                onInit: function( finder ) {
-                    finder.on( 'files:choose', function( evt ) {
+                onInit: function (finder) {
+                    finder.on('files:choose', function (evt) {
                         var file = evt.data.files.first();
-                        showUploadedImage( file.getUrl() )
-                    } );
-                    finder.on( 'file:choose:resizedImage', function( evt ) {
-                        showUploadedImage( evt.data.resizedUrl );
-                    } );
+                        showUploadedImage(file.getUrl())
+                    });
+                    finder.on('file:choose:resizedImage', function (evt) {
+                        showUploadedImage(evt.data.resizedUrl);
+                    });
                 }
-            } );
+            });
         }
-        function showUploadedImage( url ) {
-            jQuery( '#url' ).val( url );
+
+        function showUploadedImage(url) {
+            jQuery('#url').val(url);
             $('#luuurl').val(url);
             $('#anhdaidien').prop('src', url);
-            var img = jQuery( '<img>' ).attr( 'src', url );
-            jQuery( '#side-feature-img' ).html( img );
+            var img = jQuery('<img>').attr('src', url);
+            jQuery('#side-feature-img').html(img);
         }
+        function string_to_slug(str) {
+            str = str.replace(/^\s+|\s+$/g, ''); // trim
+            str = str.toLowerCase();
+
+            // remove accents, swap ñ for n, etc
+            var from = "ấầẩẫậăắằẳẵặàáảãạäâèéẻẽẹëêếềểễệìíỉĩịïîýỳỷỹỵòóỏõọöôồốổỗộơớờởỡợùúủũụüưửữứừựûñç·/_,:;";
+            var to   = "aaaaaaaaaaaaaaaaaaeeeeeeeeeeeeiiiiiiiyyyyyoooooooooooooooooouuuuuuuuuuuuunc------";
+            for (var i=0, l=from.length ; i<l ; i++) {
+                str = str.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
+            }
+
+            str = str.replace(/[^a-z0-9 -]/g, '') // remove invalid chars
+                .replace(/\s+/g, '-') // collapse whitespace and replace by -
+                .replace(/-+/g, '-'); // collapse dashes
+
+            return str;
+        }
+        $(document).ready(function () {
+            $('#texttieude').change(function () {
+                var Text = $(this).val();
+                var val = string_to_slug(Text);
+                if($(this) != null) {
+                    $('#textURL').val(val);
+                    $('#textSTitle').val($(this).val());
+                    $('#textSURL').val($(this).val());
+                }
+                else {
+                    $('#textURL').val("");
+                    $('#textSTitle').val($(this).val());
+                    $('#textSURL').val($(this).val());
+                }
+            });
+        });
     </script>
-    <script src="../lib/jquery.js"></script>
-    <script src="../dist/jquery.validate.js"></script>
+    <script src="{!! asset('citi_admin/ckeditor/ckeditor.js') !!}"></script>
+    <script src="{!! asset('citi_admin/ckfinder/ckfinder.js') !!}"></script>
+    <script src="{!! asset('citi_admin/jquery-validation/lib/jquery.js') !!}"></script>
+    <script src="{!! asset('citi_admin/jquery-validation/dist/jquery.validate.js') !!}"></script>
 @endsection
