@@ -13,17 +13,16 @@ class user extends Authenticatable
 {
     protected $table = 'taikhoan';
     protected $fillable = [
-        'tendangnhap',  'matkhau'
+        'tendangnhap',  'password',
     ];
 
     protected $hidden = [
-        'matkhau', 'remember_token'
+        'password', 'remember_token'
     ];
 
     public function getAuthPassword(){
-        //your passwor field name
-        return $this->matkhau;
+        //your password field name
+        return $this->password;
     }
-
 
 }
