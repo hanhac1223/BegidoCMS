@@ -275,6 +275,12 @@ WHERE msbaiviet = '$id'");
         $data = DB::update("UPDATE public.baiviet SET trangthai = $this->trangthai
 	    WHERE public.\"baiviet\".\"msbaiviet\" = '$this->msbaiviet'");
         return $data;
+<<<<<<< HEAD
+=======
+        $data = DB::select("DELETE FROM public.baiviet
+	WHERE public.\"baiviet\".\"msbaiviet\" = '$this->msbaiviet'");
+        return $data;
+>>>>>>> 592c232a542eec399b1c7120911a9bb847e049d3
     }
 
     public function postUpdateBaiViet($id)
@@ -283,4 +289,10 @@ WHERE msbaiviet = '$id'");
 	SET msdanhmucbaiviet='$this->msdmbaiviet', tieude='$this->tieude', noidung='$this->noidung', url='$this->url', anhdaidien='$this->anhdaidien', nhan='$this->nhan', searchtitle='$this->searchtitle', searchdescription='$this->searchdescription'
 	WHERE msbaiviet = '$id'");
     }
+   /* public function Them()
+    {
+        DB::insert('INSERT INTO public.baiviet(
+	msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
+	VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
+    }*/
 }

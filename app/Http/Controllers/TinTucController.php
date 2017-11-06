@@ -61,7 +61,14 @@ class TinTucController extends Controller
         $tintuc->setTrangthai($request->input('trangthai'));
         return $tintuc->TrangThai();
     }
+        if ($data != 0) {
+            return redirect()->back()->with('success', 'The Message');
+        } else {
+            return redirect()->back()->with('fail', 'The Message');
+        }
+    }
 
+    public function postThem(Request $request)
     public function postThem( Request $request)
     {
         $tintuc = new TinTucModel;
