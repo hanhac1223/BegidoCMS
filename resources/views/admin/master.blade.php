@@ -33,16 +33,6 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Admin
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Thông tin</a>
-                    <a class="dropdown-item" href="#">Tìm kiếm</a>
-                </div>
-            </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Đăng xuất</a>
             </li>

@@ -7,7 +7,7 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <a  class="btn btn-primary" href="{!! asset('tintuc/them') !!}">Thêm bài viết mới</a>
+                    <a  class="btn btn-primary" href="{!! asset('tin-tuc/them') !!}">Thêm bài viết mới</a>
                 </div>
             </div>
             <div class="row"  style="margin-top: 5px";>
@@ -63,7 +63,7 @@
                 else trangthai=1;
                 $.ajax({
                     type: 'POST',
-                    url: 'tintuc/capnhattrangthai',
+                    url: 'tin-tuc/cap-nhat-trang-thai',
                     data: {
                         "_token": "{{ csrf_token() }}",
                         "id": $(this).val(),

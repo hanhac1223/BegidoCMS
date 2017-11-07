@@ -1,15 +1,3 @@
-<?php
-//if (!isset($_SERVER['PHP_AUTH_USER'])) {
-//    header('WWW-Authenticate: Basic realm="My Realm"');
-//    header('HTTP/1.0 401 Unauthorized');
-//    echo 'Text to send if user hits Cancel button';
-//    exit;
-//} else {
-//    header('location: http://localhost:8080/BegidoCMS/public/postLogin');
-//    die();
-//}
-//?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,7 +72,7 @@
             {{--</div>--}}
             {{--@endif--}}
         </div>
-        <form action="{{  route('postLogin') }}" method="post" name="Login_Form" class="form-signin" role="form">
+        <form action="{{  url('dang-nhap') }}" method="post" class="form-signin" role="form">
             {!! csrf_field() !!}
             <h3 class="form-signin-heading">BegidoCMS</h3>
             <hr class="colorgraph"><br>

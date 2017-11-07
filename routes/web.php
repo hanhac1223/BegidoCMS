@@ -1,6 +1,7 @@
 <?php
-Route::get('/', 'DanhNhapController@index');
-Route::post('/dang-nhap', 'DanhNhapController@postLogin');
+Route::get('/', 'DangNhapController@index');
+Route::post('/dang-nhap', 'DangNhapController@postDangNhap');
+Route::post('/dang-xuat', 'DangNhapController@postDangXuat');
 
 Route::prefix('tin-tuc')->group(function () {
     Route::get('/', 'TinTucController@DanhSachTinTuc');
