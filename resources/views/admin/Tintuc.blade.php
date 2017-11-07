@@ -40,10 +40,10 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a class="btn btn-info" href="tintuc/capnhat/{{ $baiviet->msbaiviet }}">
+                                    <a class="btn btn-info" href="tin-tuc/cap-nhat/{{$baiviet->msbaiviet}}">
                                         <i class="fa fa-edit "></i>
                                     </a>
-                                    <a class="btn btn-danger" href="tintuc/xoa/{{ $baiviet->msbaiviet }}">
+                                    <a class="btn btn-danger" href="tin-tuc/xoa/{{$baiviet->msbaiviet}}">
                                         <i class="fa fa-trash-o "></i>
                                     </a>
                                 </td>

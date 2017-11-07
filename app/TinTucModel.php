@@ -236,10 +236,10 @@ class TinTucModel extends Model
 
     }
 
-    public function Kiemtra_URL($url)
+    public function Kiemtra_URL()
     {
-        $sql = DB::select("SELECT COUNT (*) FROM public.baiviet WHERE url = '$url'");
-        if($sql != 0)
+        $sql = DB::select("SELECT * FROM public.baiviet WHERE url = '$this->url'");
+        if(count($sql) > 0)
             return false;
         else
             return true;

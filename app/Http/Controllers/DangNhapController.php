@@ -10,7 +10,7 @@ class DangNhapController extends Controller
 {
     public function index(Request $request)
     {
-        if($request->session()->exists('users'))
+        if($request->session()->exists('TrangThaiDangnhap'))
             return redirect()->action('TinTucController@DanhSachTinTuc');
         return view('admin.view-dang-nhap');
     }

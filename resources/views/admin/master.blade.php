@@ -27,8 +27,8 @@
                     Tin tức
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="{!! asset('tintuc/them') !!}">Thêm tin tức</a>
-                    <a class="dropdown-item" href="{!! asset('tintuc') !!}">Danh sách tin tức</a>
+                    <a class="dropdown-item" href="{!! url('tin-tuc/them') !!}">Thêm tin tức</a>
+                    <a class="dropdown-item" href="{!! url('tin-tuc') !!}">Danh sách tin tức</a>
                 </div>
             </li>
         </ul>

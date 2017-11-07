@@ -68,7 +68,6 @@ class TinTucController extends Controller
     {
         $tintuc = new TinTucModel;
         if (!($tintuc->Kiemtra_URL(str_slug($request->input('textURL'), '-')))) {
-
             $tintuc->setTieude($request->input('texttieude'));
             $tintuc->setMsdmbaiviet($request->msdmbaiviet);
             $tintuc->setNoidung($request->input('editor'));
@@ -85,13 +84,13 @@ class TinTucController extends Controller
 
             $data = $tintuc->Them();
             if (!($data)) {
-                return redirect()->back()->with('success', 'Thêm tin tức thành công!');
+                return redirect()->action('TinTucController@DanhSachTinTuc');
             } else {
                 return redirect()->back()->with('fail', 'Thêm tin tức thất bại!');
             }
         }
         else
-            return redirect()->back()->with('fail', 'Thêm tin tức thất bại!');
+            return redirect()->back()->with('fail', 'URL đã tồn tại, vui lòng kiểm tra lại');
     }
 
     public function getTinTuc()
@@ -103,8 +102,9 @@ class TinTucController extends Controller
     public function postUpdateTinTuc(Request $request)
     {
         $tintuc = new TinTucModel;
-        $check = $tintuc->Kiemtra_URL($tintuc->setUrl(str_slug($request->input('textURL'), '-')));
-        if ($check == 0) {
+        $tintuc->setUrl(str_slug($request->input('textURL'), '-'));
+        $check = $tintuc->Kiemtra_URL();
+        if (!$check) {
             $tintuc->setTieude($request->input('texttieude'));
             $tintuc->setMsdmbaiviet($request->msdmbaiviet);
             $tintuc->setNoidung($request->input('editor'));
@@ -113,9 +113,8 @@ class TinTucController extends Controller
             $tintuc->setNhan($request->input('texttag'));
             $tintuc->setSearchtitle($request->input('textSTitle'));
             $tintuc->setSearchdescription($request->input('textSURL'));
-
             $tintuc->postUpdateBaiViet($request->input('msbaiviet'));
-            return redirect()->back()->with('oject', 'Cập nhật tức thành công!');
+            return redirect()->action('TinTucController@DanhSachTinTuc');
         } else
             return redirect()->back()->with('non-oject', 'Cập nhật tin tức thất bại!');
     }
