@@ -34,7 +34,7 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Đăng xuất</a>
+                <a class="nav-link" href="{{url('dang-xuat')}}">Đăng xuất</a>
             </li>
         </ul>
     </div>

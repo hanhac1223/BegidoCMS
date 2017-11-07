@@ -11,39 +11,29 @@
             margin-top: 80px;
             margin-bottom: 20px;
         }
-
         .form-signin {
             max-width: 420px;
             padding: 30px 38px 66px;
             margin: 0 auto;
             background-color: #eee;
-            border: 3px dotted rgba(0,0,0,0.1);
+            border-radius: 10px;
         }
-
         .form-signin-heading {
             text-align:center;
             margin-bottom: 30px;
         }
-
         .form-control {
             position: relative;
             font-size: 16px;
             height: auto;
             padding: 10px;
         }
-
         input[type="text"] {
-            margin-bottom: 0px;
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
+            margin-bottom: 20px;
         }
-
         input[type="password"] {
             margin-bottom: 20px;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
         }
-
         .colorgraph {
             height: 7px;
             border-top: 0;
@@ -60,24 +50,13 @@
 <div class = "container">
     <div class="wrapper">
         <div class="error">
-            {{--@include('admin.error')--}}
-            {{--@if(session('fail'))--}}
-            {{--<div class="alert">--}}
-                {{--{{ session('fail') }}--}}
-            {{--</div>--}}
-            {{--@endif--}}
-            {{--@if(session('loginSuccess'))--}}
-            {{--<div class="alert">--}}
-                {{--{{ session('loginSuccess') }}--}}
-            {{--</div>--}}
-            {{--@endif--}}
         </div>
         <form action="{{  url('dang-nhap') }}" method="post" class="form-signin" role="form">
             {!! csrf_field() !!}
-            <h3 class="form-signin-heading">BegidoCMS</h3>
+            <h3 class="form-signin-heading">ContentOMG - Begido</h3>
             <hr class="colorgraph"><br>
-            <input type="text" class="form-control" name="txtTaiKhoan" placeholder="Username" required="" autofocus="" />
-            <input type="password" class="form-control" name="txtMatKhau" placeholder="Password" required=""/>
+            <input type="text" class="form-control" name="txtTaiKhoan" placeholder="Tên đăng nhập" required="" autofocus="" />
+            <input type="password" class="form-control" name="txtMatKhau" placeholder="Mật khẩu" required=""/>
             <button class="btn btn-lg btn-primary btn-block"  name="login" value="Login" type="Submit">Đăng nhập</button>
         </form>
     </div>

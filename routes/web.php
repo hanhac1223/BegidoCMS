@@ -1,9 +1,10 @@
 <?php
 Route::get('/', 'DangNhapController@index');
 Route::post('/dang-nhap', 'DangNhapController@postDangNhap');
-Route::post('/dang-xuat', 'DangNhapController@postDangXuat');
+Route::get('/dang-xuat', 'DangNhapController@postDangXuat');
 
-Route::prefix('tin-tuc')->group(function () {
+Route::group(['prefix' => 'tin-tuc',  'middleware' => 'KiemTraDangNhap'], function()
+{
     Route::get('/', 'TinTucController@DanhSachTinTuc');
     Route::get('/them', 'TinTucController@getDanhMucTinTuc');
     Route::get('/cap-nhat/{id}', 'TinTucController@getIDCapNhatTinTuc');
