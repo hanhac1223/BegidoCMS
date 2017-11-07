@@ -12,6 +12,6 @@ class KiemTraDangNhap
         if($request->session()->exists('TrangThaiDangnhap'))
             return $next($request);
         else
-            return redirect()->action('LoginController@getLogin');
+            return redirect()->action('DanhNhapController@getLogin');
     }
 }

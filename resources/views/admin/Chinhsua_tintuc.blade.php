@@ -87,6 +87,7 @@
                             </div>
                             <div class="col-12">
                                 <label>Chọn ảnh đại diện</label>
+                                <br>
                                 <button type="button" class="btn btn-warning" id="url" name="photo"
                                         onclick="openPopup()"> Chọn
                                 </button>

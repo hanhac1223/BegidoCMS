@@ -246,17 +246,34 @@ class TinTucModel extends Model
     }
     public function getDanhMuc()
     {
-        $data = DB::select("SELECT msbaiviet, public.\"baiviet\".\"msuser\", public.\"nguoidung\".\"tenuser\",public.\"baiviet\".\"msdanhmucbaiviet\", public.\"danhmucbaiviet\".\"tendanhmucbaiviet\", tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, nhan, searchtitle, searchdescription
-        FROM public.baiviet, public.nguoidung, public.danhmucbaiviet
-        WHERE public.\"baiviet\".\"msuser\" = public.\"nguoidung\".\"msuser\" AND public.\"baiviet\".\"msdanhmucbaiviet\" = public.\"danhmucbaiviet\".\"msdanhmucbaiviet\"");
+        $data = DB::select("SELECT
+                              msbaiviet,
+                              public.\"baiviet\".\"msuser\",
+                              public.\"nguoidung\".\"tenuser\",
+                              public.\"baiviet\".\"msdanhmucbaiviet\",
+                              public.\"danhmucbaiviet\".\"tendanhmucbaiviet\",
+                              tieude,
+                              noidung,
+                              url,
+                              anhdaidien,
+                              ngaytaobaiviet,
+                              trangthai,
+                              luotxem,
+                              nhan,
+                              searchtitle,
+                              searchdescription
+                            FROM public.baiviet, public.nguoidung, public.danhmucbaiviet
+                            WHERE public.\"baiviet\".\"msuser\" = public.\"nguoidung\".\"msuser\"
+                                  AND public.\"baiviet\".\"msdanhmucbaiviet\" = public.\"danhmucbaiviet\".\"msdanhmucbaiviet\"
+                            ORDER BY ngaytaobaiviet DESC ");
         return $data;
     }
 
     public function getBaiViet($id)
     {
         $data = DB::select("SELECT msbaiviet, msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, nhan, searchtitle, searchdescription
-FROM public.baiviet
-WHERE msbaiviet = '$id'");
+        FROM public.baiviet
+        WHERE msbaiviet = '$id'");
         if ($data)
             return $data;
         else
@@ -265,7 +282,7 @@ WHERE msbaiviet = '$id'");
     public function Xoa()
     {
         $data = DB::delete("DELETE FROM public.baiviet
-	WHERE public.\"baiviet\".\"msbaiviet\" = '$this->msbaiviet'");
+	    WHERE public.\"baiviet\".\"msbaiviet\" = '$this->msbaiviet'");
         return $data;
     }
 
