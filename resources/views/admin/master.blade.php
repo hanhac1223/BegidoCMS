@@ -7,8 +7,8 @@
     <link href="{!!  asset('citi_admin/css/style.css')  !!}" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="{!!  asset('citi_admin/js/jquery.min.js')  !!}"></script>
-    <script src="{!!  asset('citi_admin/js/bootstrap.min.js') !!}"></script>
     <script src="{!!  asset('citi_admin/js/popper.min.js') !!}"></script>
+    <script src="{!!  asset('citi_admin/js/bootstrap.min.js') !!}"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -52,7 +52,6 @@
     @yield('content')
 </div>
 </body>
-<script src="{!!  asset('citi_admin/js/jquery.min.js')  !!}"></script>
-<script src="{!!  asset('citi_admin/js/popper.min.js') !!}"></script>
-<script src="{!!  asset('citi_admin/js/bootstrap.min.js') !!}"></script>
+@yield('srcScript')
+@yield('script')
 

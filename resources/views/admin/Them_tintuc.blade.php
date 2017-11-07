@@ -50,6 +50,28 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
+                        <h4> Search </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Search Title</label>
+                                <input type="text" id="textSTitle" name="textSTitle" class="form-control"
+                                       placeholder="Search Title">
+                                <br>
+                            </div>
+                            <div class="col-12">
+                                <label>Search Description</label>
+                                <input type="text" id="textSURL" name="textSURL" class="form-control"
+                                       placeholder="Search Description">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
                         <h4> General </h4>
                     </div>
                     <div class="card-body">
@@ -72,6 +94,7 @@
                                      class="rounded mx-auto d-block"
                                      style="height: 140px; padding-top: 3px; ">
                                 </div>
+                                <br>
                             </div>
                             <div class="col-12">
                                 <label>Nhập nội dung bài viết </label>
@@ -86,34 +109,19 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4> Search </h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-12">
-                                <label>Search Title</label>
-                                <input type="text" id="textSTitle" name="textSTitle" class="form-control"
-                                       placeholder="Search Title">
-                                <br>
-                            </div>
-                            <div class="col-12">
-                                <label>Search Description</label>
-                                <input type="text" id="textSURL" name="textSURL" class="form-control"
-                                       placeholder="Search Description">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </form>
-    <script>
-        CKEDITOR.replace('editor');
-    </script>
+@endsection
+@section('srcScript')
+    <script src="../citi_admin/ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script src="../citi_admin/ckfinder/ckfinder.js" type="text/javascript"></script>
+    <script src="../citi_admin/js/bootstrap-tagsinput-angular.js" type="text/javascript"></script>
+@endsection
+@section('script')
     <script type="text/javascript">
+        CKEDITOR.replace('editor', {
+            height: '400px'
+        });
         function openPopup() {
             CKFinder.popup({
                 width: 800,
@@ -173,8 +181,4 @@
             });
         });
     </script>
-    <script src="../citi_admin/ckeditor/ckeditor.js" type="text/javascript"></script>
-    <script src="../citi_admin/ckfinder/ckfinder.js" type="text/javascript"></script>
-    <script src="{!! asset('citi_admin/jquery-validation/lib/jquery.js') !!}" type="text/javascript"></script>
-    <script src="{!! asset('citi_admin/jquery-validation/dist/jquery.validate.js') !!}" type="text/javascript"></script>
 @endsection

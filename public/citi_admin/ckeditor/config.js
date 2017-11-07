@@ -34,6 +34,8 @@ CKEDITOR.editorConfig = function( config ) {
 	config.format_tags = 'p;h1;h2;h3;pre';
 
 	// Simplify the dialog windows.
+   var tenmien = "localhost:8080/BegidoCMS/public/citi_admin";
+
 	config.removeDialogTabs = 'image:advanced;link:advanced';
     config.filebrowserBrowseUrl = 'http://'+tenmien+'/ckfinder/ckfinder.html';
 
