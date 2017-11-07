@@ -231,8 +231,8 @@ class TinTucModel extends Model
     public function Them()
     {
         $data = DB::insert('INSERT INTO public.baiviet(
-        msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, searchtitle, searchdescription)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->searchtitle, $this->searchdescription]);
+        msuser, msdanhmucbaiviet, tieude, noidung, url, anhdaidien, ngaytaobaiviet, trangthai, luotxem, nhan, searchtitle, searchdescription)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', ['2fdba020-bc6b-11e7-a577-0222b57b7d80', $this->msdmbaiviet, $this->tieude, $this->noidung, $this->url, $this->anhdaidien, $this->ngaytaobai, $this->trangthai, $this->luotxem, $this->nhan, $this->searchtitle, $this->searchdescription]);
 
     }
 

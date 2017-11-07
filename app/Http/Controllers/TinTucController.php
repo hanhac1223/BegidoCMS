@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\NhanModel;
 use Illuminate\Http\Request;
 use App\DanhMucTinTucModel;
 use App\TinTucModel;
@@ -14,7 +15,8 @@ class TinTucController extends Controller
     public function getDanhMucTinTuc()
     {
         $dm = new DanhMucTinTucModel();
-        return view('admin.Them_tintuc', ['danhmuc' => $dm->getDanhMuc()]);
+        $nhan = new NhanModel();
+        return view('admin.Them_tintuc', ['danhmuc' => $dm->getDanhMuc(), 'nhan' => $nhan->DanhSach()]);
     }
 
     public function getURL(Request $request)
@@ -74,7 +76,7 @@ class TinTucController extends Controller
             $tintuc->setAnhdaidien($request->input('luuanh'));
             $tintuc->setTrangthai(0);
             $tintuc->setLuotxem(0);
-            $tintuc->setNhan(" ");
+            $tintuc->setNhan($request->input('texttag'));
             $tintuc->setSearchtitle($request->input('textSTitle'));
             $tintuc->setSearchdescription($request->input('textSURL'));
 

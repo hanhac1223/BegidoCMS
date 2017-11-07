@@ -27,11 +27,13 @@
                                 <label>Nhập tiêu đề</label>
                                 <input type="text" id="texttieude" name="texttieude" class="form-control"
                                        placeholder="Nhập tên tiêu đề bài viết" required>
+                                <br>
                             </div>
                             <div class="col-12">
                                 <label>Nhập URL</label>
                                 <input type="text" name="textURL" id="textURL" class="form-control"
                                        placeholder="Nhập URL" required>
+                                <br>
                             </div>
                             <div class="col-12">
                                 <label>Chọn danh mục bài viết</label>
@@ -56,6 +58,7 @@
                                 <label>Search Title</label>
                                 <input type="text" id="textSTitle" name="textSTitle" class="form-control"
                                        placeholder="Search Title">
+                                <br>
                             </div>
                             <div class="col-12">
                                 <label>Search Description</label>
@@ -73,13 +76,15 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
+                            @foreach($nhan as $index)
                             <div class="col-12">
                                 <label>Tag</label>
                                 <br>
                                 <input type="text" name="texttag" class="form-control texttag" placeholder="Tag"
-                                       value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" >
-                                <br>
+                                       value="{{ $index->tennhan }}" data-role="tagsinput" >
+                                <br><br>
                             </div>
+                            @endforeach
                             <div class="col-12" >
                                 <label>Chọn ảnh đại diện</label>
                                 <br>
