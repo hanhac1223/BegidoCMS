@@ -14,6 +14,8 @@ Route::prefix('tintuc')->group(function () {
     Route::post('postUpdate', 'TinTucController@postUpdateTinTuc');
 });
 
+Route::get('/nhan', 'NhanController@DanhSachNhanJSON');
+
 //Route::get('login',  ['as' => 'getLogin',  'uses' => 'LoginController@getLogin']);
 //Route::post('login', ['as' => 'postLogin', 'uses' => 'LoginController@postLogin']);
 

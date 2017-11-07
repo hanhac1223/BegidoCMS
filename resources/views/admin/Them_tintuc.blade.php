@@ -27,15 +27,13 @@
                                 <label>Nhập tiêu đề</label>
                                 <input type="text" id="texttieude" name="texttieude" class="form-control"
                                        placeholder="Nhập tên tiêu đề bài viết" required>
-                                <br>
                             </div>
                             <div class="col-12">
                                 <label>Nhập URL</label>
                                 <input type="text" name="textURL" id="textURL" class="form-control"
                                        placeholder="Nhập URL" required>
-                                <br>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12">
                                 <label>Chọn danh mục bài viết</label>
                                 <select id="idmsdanhmucbaiviet" name="msdmbaiviet" class="form-control">
                                     @foreach($danhmuc as $index)
@@ -50,7 +48,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4> Search </h4>
+                        <h4> SEO </h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -58,7 +56,6 @@
                                 <label>Search Title</label>
                                 <input type="text" id="textSTitle" name="textSTitle" class="form-control"
                                        placeholder="Search Title">
-                                <br>
                             </div>
                             <div class="col-12">
                                 <label>Search Description</label>
@@ -72,27 +69,30 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4> General </h4>
+                        <h4> Nội dung </h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-12">
                                 <label>Tag</label>
-                                <input type="text" name="texttag" class="form-control" placeholder="Tag">
+                                <br>
+                                <input type="text" name="texttag" class="form-control texttag" placeholder="Tag"
+                                       value="Amsterdam,Washington,Sydney,Beijing,Cairo" data-role="tagsinput" >
                                 <br>
                             </div>
                             <div class="col-12" >
                                 <label>Chọn ảnh đại diện</label>
+                                <br>
                                 <button type="button" class="btn btn-warning" id="url" name="photo"
                                         onclick="openPopup()"> Chọn
                                 </button>
                             </div>
-                            <div class="col-6"  >
-                                <div style="border: 1px solid #ececec;">
+                            <div class="col-12"  >
+                                <div style="border: 1px solid #ececec; margin-top: 5px">
                                 <input type="hidden" value="" id="luuurl" name="luuanh">
                                 <img src="" alt="" id="anhdaidien" name="anhdaidien"
                                      class="rounded mx-auto d-block"
-                                     style="height: 140px; padding-top: 3px; ">
+                                     style="height: 300px; padding: 3px; ">
                                 </div>
                                 <br>
                             </div>
@@ -115,7 +115,8 @@
 @section('srcScript')
     <script src="../citi_admin/ckeditor/ckeditor.js" type="text/javascript"></script>
     <script src="../citi_admin/ckfinder/ckfinder.js" type="text/javascript"></script>
-    <script src="../citi_admin/js/bootstrap-tagsinput-angular.js" type="text/javascript"></script>
+    <script src="../citi_admin/js/bootstrap-tagsinput.js" type="text/javascript"></script>
+    <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
 @endsection
 @section('script')
     <script type="text/javascript">
@@ -179,6 +180,32 @@
                     $('#textSURL').val($(this).val());
                 }
             });
+            $('.texttag').tagsinput({
+                tagClass: 'label label success'
+            });
+           $('.texttag').tagsinput('add', 'some tag');
+
+//            var citynames = new Bloodhound({
+//                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+//                queryTokenizer: Bloodhound.tokenizers.whitespace,
+//                prefetch: {
+//                    url: 'http://localhost:8080/BegidoCMS/public/nhan',
+//                    filter: function(list) {
+//                        return $.map(list, function(cityname) {
+//                            return { name: cityname }; });
+//                    }
+//                }
+//            });
+//            citynames.initialize();
+//
+//            $('texttag').tagsinput({
+//                typeaheadjs: {
+//                    name: 'citynames',
+//                    displayKey: 'name',
+//                    valueKey: 'name',
+//                    source: citynames.ttAdapter()
+//                }
+//            });
         });
     </script>
 @endsection
