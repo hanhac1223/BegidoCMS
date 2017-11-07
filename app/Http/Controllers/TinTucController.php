@@ -110,7 +110,7 @@ class TinTucController extends Controller
             $tintuc->setNoidung($request->input('editor'));
             $tintuc->setUrl(str_slug($request->input('textURL'), '-'));
             $tintuc->setAnhdaidien($request->input('luuanh'));
-            $tintuc->setNhan(" ");
+            $tintuc->setNhan($request->input('texttag'));
             $tintuc->setSearchtitle($request->input('textSTitle'));
             $tintuc->setSearchdescription($request->input('textSURL'));
 
