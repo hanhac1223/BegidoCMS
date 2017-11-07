@@ -67,7 +67,9 @@ class TinTucController extends Controller
     public function postThem( Request $request)
     {
         $tintuc = new TinTucModel;
-        if (!($tintuc->Kiemtra_URL(str_slug($request->input('textURL'), '-')))) {
+        $tintuc->setUrl(str_slug($request->input('textURL'), '-'));
+        $check = $tintuc->Kiemtra_URL();
+        if (!$check) {
             $tintuc->setTieude($request->input('texttieude'));
             $tintuc->setMsdmbaiviet($request->msdmbaiviet);
             $tintuc->setNoidung($request->input('editor'));
@@ -78,10 +80,8 @@ class TinTucController extends Controller
             $tintuc->setNhan($request->input('texttag'));
             $tintuc->setSearchtitle($request->input('textSTitle'));
             $tintuc->setSearchdescription($request->input('textSURL'));
-
             $dt = new DateTime();
             $tintuc->setNgaytaobai($dt);
-
             $data = $tintuc->Them();
             if (!($data)) {
                 return redirect()->action('TinTucController@DanhSachTinTuc');
@@ -116,6 +116,6 @@ class TinTucController extends Controller
             $tintuc->postUpdateBaiViet($request->input('msbaiviet'));
             return redirect()->action('TinTucController@DanhSachTinTuc');
         } else
-            return redirect()->back()->with('non-oject', 'Cập nhật tin tức thất bại!');
+            return redirect()->back()->with('non-oject', 'URL đã tồn tại, vui lòng kiểm tra lại');
     }
 }
