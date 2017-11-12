@@ -15,15 +15,6 @@
                     <table class="table table-striped table-bordered datatable">
                         <thead>
                         <tr>
-<<<<<<< HEAD
-                            <th >Tiêu đề</th>
-                            <th>Ngày tạo bài viết</th>
-                            <th>Tác giả</th>
-                            <th>Danh mục</th>
-                            <th>Lượt xem</th>
-                            <th>Trạng thái</th>
-                            <th>Tác vụ</th>
-=======
                             <th class="text-center">Tiêu đề</th>
                             <th class="text-center">Ngày tạo</th>
                             <th class="text-center">Tác giả</th>
@@ -31,29 +22,17 @@
                             <th class="text-center">Lượt xem</th>
                             <th class="text-center">Trạng thái</th>
                             <th class="text-center">Tác vụ</th>
->>>>>>> 7cc24d71b3e6e37f21f84ed7f18ae3656b3b1a00
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($danhmuc as $baiviet)
                             <tr>
-<<<<<<< HEAD
-                                <td style="width: 500px;">{{ $baiviet->tieude }}</td>
-                                <td>{{ $baiviet->ngaytaobaiviet }}</td>
-                                <td>{{ $baiviet->tenuser }}</td>
-                                <td>
-                                    {{ $baiviet->tendanhmucbaiviet }}
-                                </td>
-                                <td>{{ $baiviet->luotxem }}</td>
-                                <td>
-=======
                                 <td>{{ \Illuminate\Support\Str::words($baiviet->tieude, 15) }}</td>
                                 <td class="text-center">{{\Carbon\Carbon::parse($baiviet->ngaytaobaiviet )->format('d/m/Y')}}</td>
                                 <td class="text-center">{{ $baiviet->tenuser }}</td>
                                 <td class="text-center">{{ $baiviet->tendanhmucbaiviet }}</td>
                                 <td class="text-center">{{ $baiviet->luotxem }}</td>
                                 <td class="text-center">
->>>>>>> 7cc24d71b3e6e37f21f84ed7f18ae3656b3b1a00
                                     @if( $baiviet->trangthai ==1 )
                                         <button class="form-control btn-success btn-public" value="{{ $baiviet->msbaiviet }}" data="{{ $baiviet->trangthai }}">Public</button>
                                     @else

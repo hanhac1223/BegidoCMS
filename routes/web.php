@@ -14,4 +14,14 @@ Route::group(['prefix' => 'tin-tuc',  'middleware' => 'KiemTraDangNhap'], functi
     Route::post('postUpdate', 'TinTucController@postUpdateTinTuc');
 });
 
-Route::get('/nhan', 'NhanController@DanhSachNhanJSON');
+Route::group(['prefix' => 'danh-muc'], function()
+{
+    Route::get('/', 'DanhMucBaiVietController@getViewDanhSach');
+    Route::get('/them', 'DanhMucBaiVietController@getViewThem');
+});
+
+Route::group(['prefix' => 'nhan'], function()
+{
+    Route::get('/ajax/danh-sach', 'NhanController@DanhSachNhanJSON');
+});
+
