@@ -7,60 +7,55 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <a  class="btn btn-primary" href="{!! asset('tin-tuc/them') !!}">Thêm bài viết mới</a>
+                    <a class="btn btn-primary" href="{!! asset('tin-tuc/them') !!}">Thêm bài viết mới</a>
                 </div>
             </div>
-            <div class="row"  style="margin-top: 5px";>
+            <div class="row" style="margin-top: 5px" ;>
                 <div class="col-md-12">
                     <table class="table table-striped table-bordered datatable">
                         <thead>
                         <tr>
-<<<<<<< HEAD
-                            <th >Tiêu đề</th>
-                            <th>Ngày tạo bài viết</th>
-                            <th>Tác giả</th>
-                            <th>Danh mục</th>
-                            <th>Lượt xem</th>
-                            <th>Trạng thái</th>
-                            <th>Tác vụ</th>
-=======
-                            <th class="text-center">Tiêu đề</th>
+                            <th class="text-center tieu-de">Tiêu đề</th>
                             <th class="text-center">Ngày tạo</th>
                             <th class="text-center">Tác giả</th>
-                            <th class="text-center" >Danh mục</th>
+                            <th class="text-center">Danh mục</th>
                             <th class="text-center">Lượt xem</th>
                             <th class="text-center">Trạng thái</th>
                             <th class="text-center">Tác vụ</th>
->>>>>>> 7cc24d71b3e6e37f21f84ed7f18ae3656b3b1a00
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($danhmuc as $baiviet)
-                            <tr>
-<<<<<<< HEAD
-                                <td style="width: 500px;">{{ $baiviet->tieude }}</td>
-                                <td>{{ $baiviet->ngaytaobaiviet }}</td>
-                                <td>{{ $baiviet->tenuser }}</td>
+                            <tr class="font-family">
                                 <td>
-                                    {{ $baiviet->tendanhmucbaiviet }}
+                                    <div class="row">
+                                        <div class="noi-dung-tieu-de">
+                                            {{ \Illuminate\Support\Str::words($baiviet->tieude, 15) }}
+                                        </div>
+                                        <div class="noi-dung-tieu-de">
+                                            <a href="tin-tuc/cap-nhat/{{$baiviet->msbaiviet}}"
+                                               style="font-size: 10px;">{{ \Illuminate\Support\Str::words($baiviet->url, 15) }}</a>
+                                        </div>
+                                    </div>
                                 </td>
-                                <td>{{ $baiviet->luotxem }}</td>
-                                <td>
-=======
-                                <td>{{ \Illuminate\Support\Str::words($baiviet->tieude, 15) }}</td>
                                 <td class="text-center">{{\Carbon\Carbon::parse($baiviet->ngaytaobaiviet )->format('d/m/Y')}}</td>
                                 <td class="text-center">{{ $baiviet->tenuser }}</td>
                                 <td class="text-center">{{ $baiviet->tendanhmucbaiviet }}</td>
                                 <td class="text-center">{{ $baiviet->luotxem }}</td>
                                 <td class="text-center">
->>>>>>> 7cc24d71b3e6e37f21f84ed7f18ae3656b3b1a00
                                     @if( $baiviet->trangthai ==1 )
-                                        <button class="form-control btn-success btn-public" value="{{ $baiviet->msbaiviet }}" data="{{ $baiviet->trangthai }}">Public</button>
+                                        <button class="form-control btn-success btn-public"
+                                                value="{{ $baiviet->msbaiviet }}" data="{{ $baiviet->trangthai }}">
+                                            Public
+                                        </button>
                                     @else
-                                        <button class="form-control btn-danger btn-public" value="{{ $baiviet->msbaiviet }}" data="{{ $baiviet->trangthai }}">Unpublic</button>
+                                        <button class="form-control btn-danger btn-public"
+                                                value="{{ $baiviet->msbaiviet }}" data="{{ $baiviet->trangthai }}">
+                                            Unpublic
+                                        </button>
                                     @endif
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     <a class="btn btn-info" href="tin-tuc/cap-nhat/{{$baiviet->msbaiviet}}">
                                         <i class="fa fa-edit "></i>
                                     </a>
@@ -80,8 +75,8 @@
         $(document).ready(function () {
             $('.btn-public').click(function () {
                 var trangthai;
-                if($(this).attr('data') == 1) trangthai=0;
-                else trangthai=1;
+                if ($(this).attr('data') == 1) trangthai = 0;
+                else trangthai = 1;
                 $.ajax({
                     type: 'POST',
                     url: 'tin-tuc/cap-nhat-trang-thai',
@@ -91,9 +86,9 @@
                         "trangthai": trangthai
                     },
                 })
-                    .done(function(data) {
-                    location.reload();
-                });
+                    .done(function (data) {
+                        location.reload();
+                    });
             });
         });
     </script>
