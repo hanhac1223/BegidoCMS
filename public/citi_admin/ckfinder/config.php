@@ -8,7 +8,6 @@
 
 /*============================ PHP Error Reporting ====================================*/
 // http://docs.cksource.com/ckfinder3-php/debugging.html
-$baseUrl = '../public/citi_admin';
 // Production
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
 ini_set('display_errors', 0);
@@ -34,6 +33,11 @@ $config['authentication'] = function () {
 
 $config['licenseName'] = '';
 $config['licenseKey']  = '';
+
+
+$baseUrl = '../public/citi_admin';
+
+$baseDir = resolveUrl($baseUrl);
 
 /*============================ CKFinder Internal Directory ============================*/
 // http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_privateDir
@@ -66,8 +70,9 @@ $config['images'] = array(
 $config['backends'][] = array(
     'name'         => 'default',
     'adapter'      => 'local',
-    'baseUrl'      => '/ckfinder/userfiles/',
-//  'root'         => '', // Can be used to explicitly set the CKFinder user files directory.
+    'baseUrl'      => '/Uploads/',
+//  'root'         => '', // Can be use
+// to explicitly set the CKFinder user files directory.
     'chmodFiles'   => 0777,
     'chmodFolders' => 0755,
     'filesystemEncoding' => 'UTF-8',

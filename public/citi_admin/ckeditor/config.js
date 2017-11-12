@@ -33,7 +33,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// Set the most common block elements.
 	config.format_tags = 'p;h1;h2;h3;pre';
 
-	// Simplify the dialog windows.
+    // Simplify the dialog windows.
    var tenmien = "localhost:8080/BegidoCMS/public/citi_admin";
 
 	config.removeDialogTabs = 'image:advanced;link:advanced';
