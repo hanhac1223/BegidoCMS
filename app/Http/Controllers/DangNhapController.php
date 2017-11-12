@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Session;
 
 class DangNhapController extends Controller
 {
-    public function index(Request $request)
+    public function getViewDangNhap(Request $request)
     {
         if($request->session()->exists('TrangThaiDangnhap'))
             return redirect()->action('TinTucController@DanhSachTinTuc');
-        return view('admin.view-dang-nhap');
+        return view('dang-nhap.view-dang-nhap');
     }
 
     public function postDangNhap(Request $request)
@@ -24,7 +24,7 @@ class DangNhapController extends Controller
         if ($kq)
         {
             $request->session()->push("TrangThaiDangnhap", $kq);
-            return redirect()->action('TinTucController@DanhSachTinTuc');
+            return redirect()->action('TinTucController@getViewDanhSachTinTuc');
         }
         else
         {
@@ -35,6 +35,6 @@ class DangNhapController extends Controller
     public function postDangXuat(Request $request)
     {
         $request->session()->forget('TrangThaiDangnhap');
-        return redirect()->action('DangNhapController@index');
+        return redirect()->action('DangNhapController@getViewDangNhap');
     }
 }

@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('master')
 @section('content')
     <form action="{{ action('TinTucController@postThem') }}" method="post" enctype="multipart/form-data"
           class="form-horizontal" name="tintuc">
