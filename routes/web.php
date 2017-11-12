@@ -12,6 +12,17 @@ Route::group(['prefix' => 'tin-tuc',  'middleware' => 'KiemTraDangNhap'], functi
     Route::post('/cap-nhat-trang-thai', 'TinTucController@CapNhatTrangThai');
     Route::post('postThem', 'TinTucController@postThem');
     Route::post('postUpdate', 'TinTucController@postUpdateTinTuc');
+    Route::post('them/AjaxCheckURL','TinTucController@checkURL');
 });
 
-Route::get('/nhan', 'NhanController@DanhSachNhanJSON');
+Route::group(['prefix' => 'danh-muc'], function()
+{
+    Route::get('/', 'DanhMucBaiVietController@getViewDanhSach');
+    Route::get('/them', 'DanhMucBaiVietController@getViewThem');
+});
+
+Route::group(['prefix' => 'nhan'], function()
+{
+    Route::get('/ajax/danh-sach', 'NhanController@DanhSachNhanJSON');
+});
+

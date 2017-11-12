@@ -238,11 +238,13 @@ class TinTucModel extends Model
 
     public function Kiemtra_URL()
     {
-        $sql = DB::select("SELECT * FROM public.baiviet WHERE url = '$this->url'");
-        if(count($sql) > 0)
-            return false;
-        else
-            return true;
+        $sql = DB::select("SELECT COUNT (*) FROM public.baiviet WHERE url = '$this->url'");
+        foreach ($sql as $index){
+            if($index -> count > 0)
+                return false;
+            else
+                return true;
+        }
     }
     public function getDanhMuc()
     {
