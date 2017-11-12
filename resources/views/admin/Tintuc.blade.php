@@ -16,7 +16,7 @@
                     <table class="table table-striped table-bordered datatable">
                         <thead>
                         <tr>
-                            <th>Tiêu đề</th>
+                            <th >Tiêu đề</th>
                             <th>Ngày tạo bài viết</th>
                             <th>Tác giả</th>
                             <th>Danh mục</th>
@@ -28,7 +28,7 @@
                         <tbody>
                         @foreach($danhmuc as $baiviet)
                             <tr>
-                                <td>{{ $baiviet->tieude }}</td>
+                                <td style="width: 500px;">{{ $baiviet->tieude }}</td>
                                 <td>{{ $baiviet->ngaytaobaiviet }}</td>
                                 <td>{{ $baiviet->tenuser }}</td>
                                 <td>
