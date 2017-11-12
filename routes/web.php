@@ -12,6 +12,7 @@ Route::group(['prefix' => 'tin-tuc',  'middleware' => 'KiemTraDangNhap'], functi
     Route::post('/cap-nhat-trang-thai', 'TinTucController@CapNhatTrangThai');
     Route::post('postThem', 'TinTucController@postThem');
     Route::post('postUpdate', 'TinTucController@postUpdateTinTuc');
+    Route::post('them/AjaxCheckURL','TinTucController@checkURL');
 });
 
 Route::group(['prefix' => 'danh-muc'], function()
