@@ -7,15 +7,15 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
-                    <a  class="btn btn-primary" href="{!! asset('tintuc/them') !!}">Thêm bài viết mới</a>
+                    <a  class="btn btn-primary" href="{!! asset('tin-tuc/them') !!}">Thêm bài viết mới</a>
                 </div>
             </div>
-
-            <div class="row">
+            <div class="row"  style="margin-top: 5px";>
                 <div class="col-md-12">
                     <table class="table table-striped table-bordered datatable">
                         <thead>
                         <tr>
+<<<<<<< HEAD
                             <th >Tiêu đề</th>
                             <th>Ngày tạo bài viết</th>
                             <th>Tác giả</th>
@@ -23,11 +23,21 @@
                             <th>Lượt xem</th>
                             <th>Trạng thái</th>
                             <th>Tác vụ</th>
+=======
+                            <th class="text-center">Tiêu đề</th>
+                            <th class="text-center">Ngày tạo</th>
+                            <th class="text-center">Tác giả</th>
+                            <th class="text-center" >Danh mục</th>
+                            <th class="text-center">Lượt xem</th>
+                            <th class="text-center">Trạng thái</th>
+                            <th class="text-center">Tác vụ</th>
+>>>>>>> 7cc24d71b3e6e37f21f84ed7f18ae3656b3b1a00
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($danhmuc as $baiviet)
                             <tr>
+<<<<<<< HEAD
                                 <td style="width: 500px;">{{ $baiviet->tieude }}</td>
                                 <td>{{ $baiviet->ngaytaobaiviet }}</td>
                                 <td>{{ $baiviet->tenuser }}</td>
@@ -36,6 +46,14 @@
                                 </td>
                                 <td>{{ $baiviet->luotxem }}</td>
                                 <td>
+=======
+                                <td>{{ \Illuminate\Support\Str::words($baiviet->tieude, 15) }}</td>
+                                <td class="text-center">{{\Carbon\Carbon::parse($baiviet->ngaytaobaiviet )->format('d/m/Y')}}</td>
+                                <td class="text-center">{{ $baiviet->tenuser }}</td>
+                                <td class="text-center">{{ $baiviet->tendanhmucbaiviet }}</td>
+                                <td class="text-center">{{ $baiviet->luotxem }}</td>
+                                <td class="text-center">
+>>>>>>> 7cc24d71b3e6e37f21f84ed7f18ae3656b3b1a00
                                     @if( $baiviet->trangthai ==1 )
                                         <button class="form-control btn-success btn-public" value="{{ $baiviet->msbaiviet }}" data="{{ $baiviet->trangthai }}">Public</button>
                                     @else
@@ -43,10 +61,10 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a class="btn btn-info" href="tintuc/capnhat/{{ $baiviet->msbaiviet }}">
+                                    <a class="btn btn-info" href="tin-tuc/cap-nhat/{{$baiviet->msbaiviet}}">
                                         <i class="fa fa-edit "></i>
                                     </a>
-                                    <a class="btn btn-danger" href="tintuc/xoa/{{ $baiviet->msbaiviet }}">
+                                    <a class="btn btn-danger" href="tin-tuc/xoa/{{$baiviet->msbaiviet}}">
                                         <i class="fa fa-trash-o "></i>
                                     </a>
                                 </td>
@@ -56,21 +74,6 @@
                     </table>
                 </div>
             </div>
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Prev</a>
-                </li>
-                <li class="page-item active">
-                    <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">4</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
         </div>
     </div>
     <script>
@@ -81,7 +84,7 @@
                 else trangthai=1;
                 $.ajax({
                     type: 'POST',
-                    url: 'tintuc/capnhattrangthai',
+                    url: 'tin-tuc/cap-nhat-trang-thai',
                     data: {
                         "_token": "{{ csrf_token() }}",
                         "id": $(this).val(),

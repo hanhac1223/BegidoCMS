@@ -7,7 +7,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Thêm tin tức</h4>
+                        <h4>Cập nhật tin tức</h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -87,6 +87,7 @@
                             </div>
                             <div class="col-12">
                                 <label>Chọn ảnh đại diện</label>
+                                <br>
                                 <button type="button" class="btn btn-warning" id="url" name="photo"
                                         onclick="openPopup()"> Chọn
                                 </button>
@@ -128,7 +129,6 @@
         CKEDITOR.replace('editor', {
             height: '400px'
         });
-
         function openPopup() {
             CKFinder.popup({
                 width: 800,

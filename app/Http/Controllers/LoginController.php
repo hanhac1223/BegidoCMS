@@ -18,7 +18,7 @@ class LoginController extends Controller
         return view('admin.login');
     }
 
-    public function postLogin(LoginRequest $request)
+    public function postDangNhap(Request $request)
     {
         $tendangnhap = $request->txtTaiKhoan;
         $matkhau     = $request->txtMatKhau;
