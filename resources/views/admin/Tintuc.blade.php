@@ -7,6 +7,12 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-md-12">
+                    <form id="custom-search-form" class="form-search form-horizontal pull-right">
+                        <div class="input-append span12">
+                            <input type="text" class="search-query mac-style" placeholder="Search">
+                            <button type="submit" class="btn"><i class="icon-search"></i></button>
+                        </div>
+                    </form>
                     <a class="btn btn-primary" href="{!! asset('tin-tuc/them') !!}">Thêm bài viết mới</a>
                 </div>
             </div>

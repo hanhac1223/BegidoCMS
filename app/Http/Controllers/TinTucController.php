@@ -47,29 +47,38 @@ class TinTucController extends Controller
         $tintuc = new TinTucModel();
         $tintuc->setMsbaiviet($id);
         $data = $tintuc->Xoa();
-        if($data != 0)
-        {
-            return redirect()->back()->with('success','The Message');
-        }
-        else
-        {
-            return redirect()->back()->with('fail','The Message');
+        if ($data != 0) {
+            return redirect()->back()->with('success', 'The Message');
+        } else {
+            return redirect()->back()->with('fail', 'The Message');
         }
     }
 
-    public function CapNhatTrangThai(Request $request){
+    public function CapNhatTrangThai(Request $request)
+    {
         $tintuc = new TinTucModel();
         $tintuc->setMsbaiviet($request->input('id'));
         $tintuc->setTrangthai($request->input('trangthai'));
         return $tintuc->TrangThai();
     }
 
-    public function postThem( Request $request)
+    public function checkURL(Request $request)
+    {
+        $tintuc = new TinTucModel;
+        $tintuc->setUrl(str_slug($request->input('url'), '-'));
+        $check = $tintuc->Kiemtra_URL();
+        if ($check == false) {
+            return "URL đã có. Vui lòng nhập lại url!";
+        }
+        return "";
+    }
+
+    public function postThem(Request $request)
     {
         $tintuc = new TinTucModel;
         $tintuc->setUrl(str_slug($request->input('textURL'), '-'));
         $check = $tintuc->Kiemtra_URL();
-        if (!$check) {
+        if ($check == true) {
             $tintuc->setTieude($request->input('texttieude'));
             $tintuc->setMsdmbaiviet($request->msdmbaiviet);
             $tintuc->setNoidung($request->input('editor'));
@@ -88,8 +97,7 @@ class TinTucController extends Controller
             } else {
                 return redirect()->back()->with('fail', 'Thêm tin tức thất bại!');
             }
-        }
-        else
+        } else
             return redirect()->back()->with('fail', 'URL đã tồn tại, vui lòng kiểm tra lại');
     }
 
@@ -102,20 +110,16 @@ class TinTucController extends Controller
     public function postUpdateTinTuc(Request $request)
     {
         $tintuc = new TinTucModel;
+        $tintuc->setTieude($request->input('texttieude'));
+        $tintuc->setMsdmbaiviet($request->msdmbaiviet);
+        $tintuc->setNoidung($request->input('editor'));
         $tintuc->setUrl(str_slug($request->input('textURL'), '-'));
-        $check = $tintuc->Kiemtra_URL();
-        if (!$check) {
-            $tintuc->setTieude($request->input('texttieude'));
-            $tintuc->setMsdmbaiviet($request->msdmbaiviet);
-            $tintuc->setNoidung($request->input('editor'));
-            $tintuc->setUrl(str_slug($request->input('textURL'), '-'));
-            $tintuc->setAnhdaidien($request->input('luuanh'));
-            $tintuc->setNhan($request->input('texttag'));
-            $tintuc->setSearchtitle($request->input('textSTitle'));
-            $tintuc->setSearchdescription($request->input('textSURL'));
-            $tintuc->postUpdateBaiViet($request->input('msbaiviet'));
-            return redirect()->action('TinTucController@DanhSachTinTuc');
-        } else
-            return redirect()->back()->with('non-oject', 'URL đã tồn tại, vui lòng kiểm tra lại');
+        $tintuc->setAnhdaidien($request->input('luuanh'));
+        $tintuc->setNhan($request->input('texttag'));
+        $tintuc->setSearchtitle($request->input('textSTitle'));
+        $tintuc->setSearchdescription($request->input('textSURL'));
+        $tintuc->postUpdateBaiViet($request->input('msbaiviet'));
+        $tintuc->postUpdateBaiViet(msdmbaiviet);
+        return redirect()->action('TinTucController@DanhSachTinTuc');
     }
 }

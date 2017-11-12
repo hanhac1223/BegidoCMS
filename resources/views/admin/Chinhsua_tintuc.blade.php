@@ -87,19 +87,11 @@
                             </div>
                             <div class="col-12">
                                 <label>Chọn ảnh đại diện</label>
-                                <br>
-                                <button type="button" class="btn btn-warning" id="url" name="photo"
-                                        onclick="openPopup()"> Chọn
+                                <input type="text" id="luuurl" name="luuanh" value="{!! $rex->anhdaidien !!}">
+                                <button type="button" class="btn btn-primary" id="url" name="photo"
+                                        onclick="openPopup()" style="padding-top: 1px; margin-bottom: 5px;"> Chọn
                                 </button>
-                            </div>
-                            <div class="col-12">
-                                <div style="border: 1px solid #ececec; margin-top: 5px">
-                                    <input type="hidden" id="luuurl" name="luuanh" value="{!! $rex->anhdaidien !!}">
-                                    <img src="{!! $rex->anhdaidien !!}" alt="" id="anhdaidien" name="anhdaidien"
-                                         class="rounded mx-auto d-block"
-                                         style="height: 300px; padding: 3px; ">
-                                </div>
-                                <br>
+                                <br><br>
                             </div>
                             <div class="col-12">
                                 <label>Nhập nội dung bài viết </label>
