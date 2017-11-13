@@ -119,7 +119,6 @@ class TinTucController extends Controller
         $tintuc->setSearchtitle($request->input('textSTitle'));
         $tintuc->setSearchdescription($request->input('textSURL'));
         $tintuc->postUpdateBaiViet($request->input('msbaiviet'));
-        $tintuc->postUpdateBaiViet(msdmbaiviet);
         return redirect()->action('TinTucController@DanhSachTinTuc');
     }
 }

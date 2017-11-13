@@ -35,7 +35,7 @@
                                 <div class="col-12">
                                     <label>Nhập URL</label>
                                     <input type="text" name="textURL" id="textURL" class="form-control"
-                                           placeholder="Nhập URL" value="{!! $rex->url !!}" required>
+                                           placeholder="Nhập URL" value="{!! $rex->url !!}" readonly>
                                     <br>
                                 </div>
                                 <div class="col-6">
