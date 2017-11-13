@@ -31,7 +31,7 @@ class LoginController extends Controller
         }
         else
         {
-            return redirect()->back()->with('fail','Login thất bại!');
+            return redirect()->back();
         }
     }
 }

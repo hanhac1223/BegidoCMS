@@ -12,8 +12,22 @@ class NhanModel extends Model
     public $urlnhan;
 
     public function DanhSach(){
-        $query = "SELECT  * FROM public.\"nhan\"";
+        $arrNhan = array();
+        $query = "SELECT * FROM public.\"nhan\"";
         $result = DB::select($query);
+        foreach ($result as $item){
+            $temp = new NhanModel;
+            $temp->msnhan = $item->msnhan;
+            $temp->tennhan = $item->tennhan;
+            $temp->urlnhan = $item->urlnhan;
+            array_push($arrNhan, $temp);
+        }
+        return $arrNhan;
+    }
+
+    public function Them(){
+        $query = "INSERT INTO public.nhan (tennhan, urlnhan) VALUES ('$this->tennhan', '$this->urlnhan')";
+        $result = DB::insert($query);
         return $result;
     }
 }

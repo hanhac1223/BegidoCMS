@@ -12,11 +12,15 @@ use DateTime;
 
 class TinTucController extends Controller
 {
-    public function getDanhMucTinTuc()
+    //
+    public function getViewThemTinTuc()
     {
         $dm = new DanhMucTinTucModel();
         $nhan = new NhanModel();
-        return view('admin.Them_tintuc', ['danhmuc' => $dm->getDanhMuc(), 'nhan' => $nhan->DanhSach()]);
+        return view('tin-tuc.view-them-bai-viet',
+            ['danhmuc' => $dm->getDanhMuc(),
+                'nhan' => $nhan->DanhSach()
+            ]);
     }
 
     public function getURL(Request $request)
@@ -25,23 +29,29 @@ class TinTucController extends Controller
         return view('admin.Them_tintuc', ['urltieude' => $index->getDanhMuc()]);
     }
 
-    public function DanhSachTinTuc()
+    //
+    public function getViewDanhSachTinTuc()
     {
         $dm = new TinTucModel();
-        return view('admin.Tintuc', ['danhmuc' => $dm->getDanhMuc()]);
+        return view('tin-tuc.view-danh-sach-tin-tuc', ['danhmuc' => $dm->getDanhMuc()]);
     }
 
-    public function getIDCapNhatTinTuc(Request $request, $id)
+    //
+    public function getViewCapNhatTinTuc(Request $request, $id)
     {
         $tintuc = new TinTucModel();
         $dm = new DanhMucTinTucModel();
         $index = $tintuc->getBaiViet($id);
         if ($index != 0) {
-            return view('admin.Chinhsua_tintuc', ['data' => $tintuc->getBaiViet($id), 'danhmuc' => $dm->getDanhMuc()]);
+            return view('tin-tuc.view-cap-nhat-tin-tuc',
+                ['data' => $tintuc->getBaiViet($id),
+                    'danhmuc' => $dm->getDanhMuc()
+                ]);
         } else
             return redirect()->back()->with('non-object', '');
     }
 
+    //
     public function getIDXoaTinTuc(Request $request, $id)
     {
         $tintuc = new TinTucModel();
@@ -54,7 +64,7 @@ class TinTucController extends Controller
         }
     }
 
-    public function CapNhatTrangThai(Request $request)
+    public function postCapNhatTrangThai(Request $request)
     {
         $tintuc = new TinTucModel();
         $tintuc->setMsbaiviet($request->input('id'));
